@@ -50,6 +50,11 @@
 \LoadClass[\@mysize]{report}[1995/06/26]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Post-package-loading fixups.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{ds\@mysize.clo}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Main code
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -69,15 +74,6 @@
 \AtEndDocument{\immediate\write\@mainaux{\string\setcounter{count@BackMatter}
     {\arabic{count@BackMatter}}}}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Handy-dandy utilities
-%%
-%% Define a linespacing command.
-
-\def\ls#1{
-  \renewcommand{\baselinestretch}{#1}
-  \selectfont
-}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Major document structure, \frontmatter, \mainmatter, \appendix, \backmatter
@@ -95,7 +91,7 @@
   \clearpage
   \pagenumbering{arabic}          % Arabic numbers from here on
   \raggedbottom
-  \ifdouble@space\ls{2}\fi
+  \ifdouble@space\ds@normalsize\fi
   \renewcommand{\toc@section}{Chapter}
   \setcounter{count@Chapter}{0}
   }
@@ -118,6 +114,7 @@
   \renewcommand{\toc@section}{BackMatter}
   \let\@chapter\normal@chapter
   \setcounter{count@BackMatter}{0}
+  \normalsize
   }
 
 \def\@onlyappendix[#1]#2{
@@ -174,10 +171,10 @@
   \vspace*{30\p@}                       % Space at top of text page.
   \begin{center}\large\bfseries
     \ifnum \c@secnumdepth >\m@ne
-      \ls{2}
       \MakeUppercase\@chapapp\ \thechapter % 'CHAPTER' and number.
       \par\nobreak
     \fi
+  \addvspace{\topskip}
   \MakeUppercase{#1}
   \end{center}
   \par\nobreak                          % TeX penalty to prevent page break.
@@ -398,215 +395,9 @@
 \def\departmentname#1{\gdef\@departmentname{#1}}
 
 \ifcondensed@frontmatter
-  \renewcommand{\maketitle}{
-    \begin{center}
-      \pagenumbering{roman}
-      \null
-      \textbf{\uppercase\expandafter{\@title}} \par % Title must be all caps.
-      A Dissertation Presented \par
-      by \par
-      \uppercase\expandafter{\@author} \par
-      \ls{1}
-      Submitted to the Graduate School of the \par
-      University of Massachusetts Amherst in partial fulfillment \par
-      of the requirements for the degree of \par
-      \par
-      \uppercase\expandafter{\@degree} \par \par
-      \@date \par \par
-      \@departmentname \par \par
-    \end{center}%
-    \setcounter{footnote}{0}%      % Footnotes start at zero again.
-    \let\thanks\relax
-    \let\maketitle\relax
-    }
-  \else
-  \renewcommand{\maketitle}{
-    \begin{titlepage}
-      \pagenumbering{roman}
-      \null
-      \vfil
-      \vskip 60\p@                  % To adjust centering.
-      \begin{center}%
-        \textbf{\uppercase\expandafter{\@title}} \par % Title must be all caps.
-        \vfill                      % Vertical space after title.
-        \ls{2}
-        A Dissertation Presented \par
-        \par
-        by \par
-        \par
-        \uppercase\expandafter{\@author}
-        \vfill
-        \ls{1}
-        Submitted to the Graduate School of the \par
-        University of Massachusetts Amherst in partial fulfillment \par
-        of the requirements for the degree of \par
-        \par
-        \ls{2}
-        \uppercase\expandafter{\@degree} \par \par
-        \@date \par \par
-        \@departmentname \par \par
-      \end{center}\par
-    \end{titlepage}%
-    \setcounter{footnote}{0}%      % Footnotes start at zero again.
-    \setcounter{page}{2}
-    \let\thanks\relax
-    \let\maketitle\relax
-    }
-  \fi
-
-\ifcondensed@frontmatter
-  \newcommand{\copyrightpage}{
-    \begin{minipage}{.95\textwidth}
-      \begin{center}
-        \copyright\ \@copyrightyear\ \@author \par
-      \end{center}
-    \end{minipage}
-    }
-  \else
-  \newcommand{\copyrightpage}{
-    \clearpage
-    \thispagestyle{empty}
-    \rule{0in}{4.25in}
-    \noindent
-    \begin{minipage}{.95\textwidth}
-      \begin{center}
-        \copyright\ \@copyrightyear\ \@author \par
-      \end{center}
-    \end{minipage}
-    \rule{0in}{4.2in}
-    }
-  \fi
-
-\ifcondensed@frontmatter
-  \newcommand{\signaturepage}{
-    \vspace{6ex}
-    \begin{center}
-      Committee will be listed as: \par
-      \@committeechair, Chair \par
-      \@firstreader, Member \par
-      \@secondreader, Member \par
-      \ifthird
-        \@thirdreader, Member \par
-      \fi
-      \iffourth
-        \@fourthreader, Member \par
-      \fi
-      \iffifth
-        \@fifthreader, Member \par
-      \fi
-      \ifsixth
-        \@sixthreader, Member \par
-      \fi
-    \end{center}
-    }
-  \else
-  \def\signaturepage{
-    \clearpage
-    \thispagestyle{empty}
-    \null
-    \vfil
-    \begin{center}
-      \textbf{\uppercase\expandafter{\@title}} \par
-      \vfill
-      A Dissertation Presented \par
-      \vskip 1em
-      by \par
-      \vskip 1em
-      \uppercase\expandafter{\@author} \par
-    \end{center}
-    \vfill
-    \begin{flushleft}
-      Approved as to style and content by: \par
-      \vskip 0.4in
-      \rule{0.55\textwidth}{0.5pt} \par
-      \@committeechair, Chair \par
-      \vskip 0.35in
-      \rule{0.55\textwidth}{0.5pt} \par
-      \@firstreader, Member \par
-      \vskip 0.35in
-      \rule{0.55\textwidth}{0.5pt} \par
-      \@secondreader, Member \par
-      \ifthird
-      \vskip 0.35in
-      \rule{0.55\textwidth}{0.5pt} \par
-      \@thirdreader, Member \par
-      \fi
-      \iffourth
-      \vskip 0.35in
-      \rule{0.55\textwidth}{0.5pt} \par
-      \@fourthreader, Member \par
-      \fi
-      \iffifth
-      \vskip 0.35in
-      \rule{0.55\textwidth}{0.5pt} \par
-      \@fifthreader, Member \par
-      \fi
-      \ifsixth
-      \vskip 0.35in
-      \rule{0.55\textwidth}{0.5pt} \par
-      \@sixthreader, Member \par
-      \fi
-    \end{flushleft}
-    \newlength{\lenguide}
-    \settowidth{\lenguide}{\rule{0.55\textwidth}{0.5pt}}
-    \vskip 0.2in
-    \begin{flushright}
-      \rule{0.55\textwidth}{0.5pt} \par
-      \parbox[t]{\lenguide}{\@departmentchair, Department Chair \par
-        \@departmentname}
-    \end{flushright}
-    }
-  \fi
-
-%%
-%% Added environments
-%%
-
-\ifcondensed@frontmatter
-  \newenvironment{dedication}{
-    \vspace{6ex}
-    \begin{quotation}}
-    {\par\end{quotation}}
+  \input{cfmthesis.clo}
 \else
-  \newenvironment{dedication}{
-    \clearpage\null\vfil
-    \thispagestyle{empty}
-    \ifdouble@space \ls{2} \else \ls{1} \fi
-    \vfill
-    \begin{quotation}}
-    {\par\end{quotation}\vfill\vfil\null}
-\fi
-
-\ifcondensed@frontmatter
-  \renewenvironment{abstract}{
-    \vspace{6ex}
-    \begin{center}
-      \textbf{\uppercase\expandafter{\abstractname}} \par
-      Degrees will be listed as: \par
-      \@bachelors \par
-      \@masters \par
-      \@degreeabbrv, UNIVERSITY OF MASSACHUSETTS AMHERST \par
-      Directed by: Professor \@committeechair \par
-    \end{center} \par \indent 
-    \ifdouble@space\else\ls{2}\fi}
-  {\par\vfil\null}
-\else
-  \renewenvironment{abstract}{
-    \clearpage
-    \pagestyle{plain}
-    \chapter{\uppercase\expandafter{\abstractname}}
-    \begin{center}
-      \ls{2}
-      \textbf{\uppercase\expandafter{\@title}} \par
-      \uppercase\expandafter{\@date} \par
-      \uppercase\expandafter{\@author} \par
-      \@bachelors \par
-      \@masters \par
-      \@degreeabbrv, UNIVERSITY OF MASSACHUSETTS AMHERST \par
-      Directed by: Professor \@committeechair \par
-    \end{center} \par \indent 
-    \ifdouble@space\else\ls{2}\fi}
-  {\par\vfil\null}
+  \input{stdthesis.clo}
 \fi
 
 
@@ -630,20 +421,20 @@
 \renewcommand{\section}{
   \@startsection{section}{1}{\z@}
                 {4.5ex \@plus 1ex \@minus .2ex}
-                {2.3ex \@plus .2ex}
+                {0.001ex \@plus .2ex}
                 {\normalfont\large\bfseries}}
 
 \renewcommand{\subsection}{
   \@startsection{subsection}{2}{\z@}%
-                {3.25ex\@plus 1ex \@minus .2ex}%
-                {1.5ex \@plus .2ex}%
+                {3.25ex \@plus 1ex \@minus .2ex}%
+                {0.001ex \@plus .2ex}%
                 {\normalfont\normalsize\bfseries}}
 
 \renewcommand{\subsubsection}{
   \@startsection{subsubsection}{3}{\z@}%
-                {3.25ex\@plus 1ex \@minus .2ex}%
-                {1.5ex \@plus .2ex}%
-                {\normalfont\normalsize}}
+                {3.25ex \@plus 1ex \@minus .2ex}%
+                {0.001ex \@plus .2ex}%
+                {\normalfont\normalsize\bfseries}}
 
 \renewcommand{\paragraph}{
   \@startsection{paragraph}{4}{\z@}%
@@ -653,7 +444,7 @@
 
 \renewcommand{\subparagraph}{
   \@startsection{subparagraph}{5}{\parindent}%
-                {3.25ex \@plus1ex \@minus .2ex}%
+                {0.0ex \@plus1ex \@minus .2ex}%
                 {-1em}%
                 {\normalfont\normalsize\bfseries}}
 
@@ -662,12 +453,11 @@
 %% Fix captions
 %%
 
-\setlength\abovecaptionskip{\baselineskip}
-\setlength\belowcaptionskip{\baselineskip}
+\setlength\abovecaptionskip{\topskip}
+\setlength\belowcaptionskip{\topskip}
 
 \long\def\@makecaption#1#2{%
-  \addvspace\abovecaptionskip
-  \ls{1}
+  \addvspace{\abovecaptionskip}
   \sbox\@tempboxa{\textbf{#1.} #2}%
   \ifdim \wd\@tempboxa >\hsize
     \textbf{#1.} #2\par
@@ -675,7 +465,9 @@
     \global \@minipagefalse
     \hb@xt@\hsize{\hfil\box\@tempboxa\hfil}%
   \fi
-  \addvspace\belowcaptionskip
+  \par
+  \vskip\belowcaptionskip
+  \par
   }
 
 
@@ -684,7 +476,7 @@
 %%
 \let\base@tabular\tabular
 \renewcommand{\tabular}[2][]{
-  \ls{1}
+%  \ls{1}
   \base@tabular[#1]{#2}}
 
 %%
@@ -697,10 +489,14 @@
     \rightmargin   \leftmargin
     \parsep        \z@ \@plus\p@
     }
-  \item[]\ls{1}}
-  {\endlist}
+  \item[]
+%  \ls{1}
+  }
+{\endlist}
 \renewenvironment{quote}{
-  \list{}{\rightmargin\leftmargin}\item[]\ls{1}}
+  \list{}{\rightmargin\leftmargin}\item[]
+%          \ls{1}
+          }
          {\endlist}
 
 
@@ -752,7 +548,7 @@
         \renewcommand\newblock{\hskip .11em \@plus.33em \@minus.07em}%
       \fi
       \sloppy\clubpenalty4000\widowpenalty4000%
-      \ls{1}
+%      \ls{1}
       \sfcode`\.=\@m}
      {\def\@noitemerr
        {\@latex@warning{Empty `thebibliography' environment}}%

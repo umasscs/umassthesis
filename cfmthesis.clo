@@ -1,0 +1,72 @@
+\renewcommand{\maketitle}{
+  \begin{center}
+    \pagenumbering{roman}
+    \null
+    \textbf{\uppercase\expandafter{\@title}} \par % Title must be all caps.
+    A Dissertation Presented \par
+    by \par
+    \uppercase\expandafter{\@author} \par
+    Submitted to the Graduate School of the \par
+    University of Massachusetts Amherst in partial fulfillment \par
+    of the requirements for the degree of \par
+    \par
+    \uppercase\expandafter{\@degree} \par \par
+    \@date \par \par
+    \@departmentname \par \par
+  \end{center}%
+  \setcounter{footnote}{0}%      % Footnotes start at zero again.
+  \let\thanks\relax
+  \let\maketitle\relax
+  }
+
+\newcommand{\copyrightpage}{
+  \begin{minipage}{.95\textwidth}
+    \begin{center}
+      \copyright\ \@copyrightyear\ \@author \par
+    \end{center}
+  \end{minipage}
+  }
+
+\newcommand{\signaturepage}{
+  \vspace{6ex}
+  \begin{center}
+    Committee will be listed as: \par
+    \@committeechair, Chair \par
+    \@firstreader, Member \par
+    \@secondreader, Member \par
+    \ifthird
+    \@thirdreader, Member \par
+    \fi
+    \iffourth
+    \@fourthreader, Member \par
+    \fi
+    \iffifth
+    \@fifthreader, Member \par
+    \fi
+    \ifsixth
+    \@sixthreader, Member \par
+    \fi
+  \end{center}
+  }
+
+%%
+%% Added environments
+%%
+
+\newenvironment{dedication}
+    {\vspace{6ex}\begin{quotation}}
+    {\par\end{quotation}}
+  
+\renewenvironment{abstract}{
+  \vspace{6ex}
+  \begin{center}
+    \textbf{\uppercase\expandafter{\abstractname}} \par
+    Degrees will be listed as: \par
+    \@bachelors \par
+    \@masters \par
+    \@degreeabbrv, UNIVERSITY OF MASSACHUSETTS AMHERST \par
+    Directed by: Professor \@committeechair \par
+  \end{center} \par \indent 
+                                %    \ifdouble@space\else\ls{2}\fi
+  }
+  {\par\vfil\null}

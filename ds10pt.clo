@@ -1,0 +1,18 @@
+%% 
+%% This is file `ds10pt.clo'.
+\ProvidesFile{ds10pt.clo}
+              [1997/06/16 v0.1
+      University of Massachusetts Thesis Class (size option)]
+
+\newcommand\ds@normalsize{
+   \@setfontsize\ds@normalsize\@xpt{20}%
+   \abovedisplayskip 20\p@ \@plus2\p@ \@minus5\p@
+   \abovedisplayshortskip \z@ \@plus3\p@
+   \belowdisplayshortskip 6\p@ \@plus3\p@ \@minus3\p@
+   \belowdisplayskip \abovedisplayskip
+   \let\@listi\@listI}
+\newcommand\ds@large{\@setfontsize\ds@large\@xiipt{24}}
+
+\endinput
+%% 
+%% End of file `ds10pt.clo'.
