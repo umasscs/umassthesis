@@ -89,7 +89,7 @@
   \clearpage
   \pagenumbering{arabic}          % Arabic numbers from here on
   \raggedbottom
-  \ifdouble@space\ds@normalsize\fi
+  \ifdouble@space\thesis@ds@normalsize\fi
   \renewcommand{\toc@section}{Chapter}
   \setcounter{count@Chapter}{0}
   }
@@ -423,19 +423,19 @@
   \@startsection{section}{1}{\z@}
                 {4.5ex \@plus 1ex \@minus .2ex}
                 {0.001ex \@plus .2ex}
-                {\normalfont\ds@large\bfseries}}
+                {\normalfont\thesis@ds@large\bfseries}}
 
 \renewcommand{\subsection}{
   \@startsection{subsection}{2}{\z@}%
                 {3.25ex \@plus 1ex \@minus .2ex}%
                 {0.001ex \@plus .2ex}%
-                {\normalfont\ds@normalsize\bfseries}}
+                {\normalfont\thesis@ds@normalsize\bfseries}}
 
 \renewcommand{\subsubsection}{
   \@startsection{subsubsection}{3}{\z@}%
                 {3.25ex \@plus 1ex \@minus .2ex}%
                 {0.001ex \@plus .2ex}%
-                {\normalfont\ds@normalsize\bfseries}}
+                {\normalfont\thesis@ds@normalsize\bfseries}}
 
 \renewcommand{\paragraph}{
   \@startsection{paragraph}{4}{\z@}%
@@ -554,4 +554,4 @@
        {\@latex@warning{Empty `thebibliography' environment}}%
       \endlist}
 
-\newcommand{\doublespace}{\ds@normalsize}
+\newcommand{\doublespace}{\thesis@ds@normalsize}

@@ -5,10 +5,10 @@
     \vfil
     \vskip 60\p@                  % To adjust centering.
     \begin{center}%
-      \ds@large
+      \thesis@ds@large
       \textbf{\uppercase\expandafter{\@title}} \par
       \vfill                      % Vertical space after title.
-      \ds@normalsize
+      \thesis@ds@normalsize
       A Dissertation Presented \par
       by \par
       \uppercase\expandafter{\@author}
@@ -50,10 +50,10 @@
   \null
   \vfil
   \begin{center}
-    \ds@large
+    \thesis@ds@large
     \textbf{\uppercase\expandafter{\@title}} \par
     \vfill
-    \ds@normalsize
+    \thesis@ds@normalsize
     A Dissertation Presented \par
     by \par
     \uppercase\expandafter{\@author} \par
@@ -118,10 +118,10 @@
   \pagestyle{plain}
   \chapter{\uppercase\expandafter{\abstractname}}
   \begin{center}
-    \ds@large
+    \thesis@ds@large
     \textbf{\uppercase\expandafter{\@title}} \par
     \addvspace{\topskip}
-    \ds@normalsize
+    \thesis@ds@normalsize
     \uppercase\expandafter{\@date} \par
     \addvspace{\topskip}
     \uppercase\expandafter{\@author} \par

@@ -4,14 +4,14 @@
               [1997/06/16 v0.1
       University of Massachusetts Thesis Class (size option)]
 
-\newcommand\ds@normalsize{
-   \@setfontsize\ds@normalsize\@xipt{22}%
+\newcommand\thesis@ds@normalsize{
+   \@setfontsize\thesis@ds@normalsize\@xipt{22}%
    \abovedisplayskip 22\p@ \@plus3\p@ \@minus6\p@
    \abovedisplayshortskip \z@ \@plus3\p@
    \belowdisplayshortskip 6.5\p@ \@plus3.5\p@ \@minus3\p@
    \belowdisplayskip \abovedisplayskip
    \let\@listi\@listI}
-\newcommand\ds@large{\@setfontsize\ds@large\@xiipt{24}}
+\newcommand\thesis@ds@large{\@setfontsize\thesis@ds@large\@xiipt{24}}
 
 \endinput
 %% 
