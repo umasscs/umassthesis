@@ -8,7 +8,7 @@
       \ds@large
       \textbf{\uppercase\expandafter{\@title}} \par
       \vfill                      % Vertical space after title.
-      \ds@normal
+      \ds@normalsize
       A Dissertation Presented \par
       by \par
       \uppercase\expandafter{\@author}
@@ -53,7 +53,7 @@
     \ds@large
     \textbf{\uppercase\expandafter{\@title}} \par
     \vfill
-    \ds@normal
+    \ds@normalsize
     A Dissertation Presented \par
     by \par
     \uppercase\expandafter{\@author} \par
@@ -121,7 +121,7 @@
     \ds@large
     \textbf{\uppercase\expandafter{\@title}} \par
     \addvspace{\topskip}
-    \ds@normal
+    \ds@normalsize
     \uppercase\expandafter{\@date} \par
     \addvspace{\topskip}
     \uppercase\expandafter{\@author} \par
