@@ -230,17 +230,13 @@
 \@seenBackMatterfalse
 
 \newlength{\thesis@pnumwidth}
-\setlength{\thesis@pnumwidth}{0pt}
 \settowidth{\thesis@pnumwidth}{\textbf{999}}
 
 \newlength{\thesis@tocrmarg}
-\setlength{\thesis@tocrmarg}{0pt}
 \settowidth{\thesis@tocrmarg}{\textbf{M999}}
 
 \renewcommand{\@pnumwidth}{\thesis@pnumwidth}
 \renewcommand{\@tocrmarg}{\thesis@tocrmarg}
-%\renewcommand{\@pnumwidth}{0\p@}
-%\renewcommand{\@tocrmarg}{0\p@}
 
 \newcommand{\l@FrontMatter}[2]{
   \addpenalty{-\@highpenalty}
@@ -527,31 +523,13 @@
 
 %%
 %% Fix the bibliography
-\renewenvironment{thebibliography}[1]
-     {\unnumberedchapter{\bibname
-        \@mkboth{\MakeUppercase\bibname}{\MakeUppercase\bibname}}%
-      \list{\@biblabel{\@arabic\c@enumiv}}%
-           {\settowidth\labelwidth{\@biblabel{#1}}%
-            \leftmargin\labelwidth
-            \advance\leftmargin\labelsep
-            \if@openbib
-              \advance\leftmargin\bibindent
-              \itemindent -\bibindent
-              \listparindent \itemindent
-              \parsep \z@
-            \fi
-            \usecounter{enumiv}%
-            \let\p@enumiv\@empty
-            \renewcommand\theenumiv{\@arabic\c@enumiv}}%
-      \if@openbib
-        \renewcommand\newblock{\par}%
-      \else
-        \renewcommand\newblock{\hskip .11em \@plus.33em \@minus.07em}%
-      \fi
-      \sloppy\clubpenalty4000\widowpenalty4000%
-      \sfcode`\.=\@m}
-     {\def\@noitemerr
-       {\@latex@warning{Empty `thebibliography' environment}}%
-      \endlist}
+
+\let\base@thebibliography\thebibliography
+\let\endbase@thebibliography\endthebibliography
+
+\renewenvironment{thebibliography}[1]{
+  \begin{base@thebibliography}{#1}
+  \addcontentsline{toc}{\toc@section}{\MakeUppercase{\bibname}}%
+    }{\end{base@thebibliography}}
 
 \newcommand{\doublespace}{\thesis@ds@normalsize}
