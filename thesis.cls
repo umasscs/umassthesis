@@ -78,8 +78,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Major document structure, \frontmatter, \mainmatter, \appendix, \backmatter
 
-\let\normal@chapter\@chapter %% save the chapter
-
 \newcommand{\frontmatter}{
   \setcounter{secnumdepth}{-1}
   \renewcommand{\toc@section}{FrontMatter}
@@ -167,6 +165,7 @@
   \global\@topnum\z@
   \secdef\@chapter\@schapter
   }
+
 \renewcommand{\@makechapterhead}[1]{    % Heading for \chapter command
   \vspace*{30\p@}                       % Space at top of text page.
   \begin{center}\large\bfseries
@@ -190,12 +189,14 @@
 \renewcommand{\@makeschapterhead}[1]{   % Heading for \chapter* command
   \vspace*{30\p@}                       % Space at top of page.
   \begin{center}
-    \large\bfseries                        % Title.
+    \large\bfseries                     % Title.
     \MakeUppercase{#1}\par
   \end{center}
-  \nobreak                             % TeX penalty to prevent page break.
+  \nobreak                              % TeX penalty to prevent page break.
   \vskip 24\p@                          % Space between title and text.
   }
+
+\let\normal@chapter\@chapter %% save the chapter
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -422,23 +423,23 @@
   \@startsection{section}{1}{\z@}
                 {4.5ex \@plus 1ex \@minus .2ex}
                 {0.001ex \@plus .2ex}
-                {\normalfont\large\bfseries}}
+                {\normalfont\ds@large\bfseries}}
 
 \renewcommand{\subsection}{
   \@startsection{subsection}{2}{\z@}%
                 {3.25ex \@plus 1ex \@minus .2ex}%
                 {0.001ex \@plus .2ex}%
-                {\normalfont\normalsize\bfseries}}
+                {\normalfont\ds@normalsize\bfseries}}
 
 \renewcommand{\subsubsection}{
   \@startsection{subsubsection}{3}{\z@}%
                 {3.25ex \@plus 1ex \@minus .2ex}%
                 {0.001ex \@plus .2ex}%
-                {\normalfont\normalsize\bfseries}}
+                {\normalfont\ds@normalsize\bfseries}}
 
 \renewcommand{\paragraph}{
   \@startsection{paragraph}{4}{\z@}%
-                {3.25ex \@plus1ex \@minus.2ex}%
+                {2.5ex \@plus1ex \@minus.2ex}%
                 {-1em}%
                 {\normalfont\normalsize\bfseries}}
 
@@ -548,8 +549,9 @@
         \renewcommand\newblock{\hskip .11em \@plus.33em \@minus.07em}%
       \fi
       \sloppy\clubpenalty4000\widowpenalty4000%
-%      \ls{1}
       \sfcode`\.=\@m}
      {\def\@noitemerr
        {\@latex@warning{Empty `thebibliography' environment}}%
       \endlist}
+
+\newcommand{\doublespace}{\ds@normalsize}
