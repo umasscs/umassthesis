@@ -1,3 +1,9 @@
+%%
+%% This if file `umthcfm.clo'.
+\ProvidesFile{umthcfm.clo}
+              [1997/08/21 v1.0
+      University of Massachusetts Thesis Class (condensed option)]
+
 \renewcommand{\maketitle}{
   \begin{center}
     \pagenumbering{roman}
@@ -70,3 +76,7 @@
                                 %    \ifdouble@space\else\ls{2}\fi
   }
   {\par\vfil\null}
+
+\endinput
+%%
+%% End of file `umthcfm.clo'.

@@ -10,7 +10,7 @@
 %%              (see thesis.tex in this directory for usage example)
 %%
 %%  Author: Tony Hosking, 1995
-%%  Turned into a class file and tweaked by John Ridgway, 1997
+%%  Turned into a class file and rewritten by John Ridgway, 1997
 %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -18,7 +18,7 @@
 %% Identification part
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{thesis}[1997/04/11 v0.3 U.Mass. dissertation class]
+\ProvidesClass{umthesis}[1997/08/21 v1.0 U.Mass. dissertation class]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Initial code
@@ -52,7 +52,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Post-package-loading fixups.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\input{ds\@mysize.clo}
+\input{umth\@mysize.clo}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Main code
@@ -82,7 +82,7 @@
   \setcounter{secnumdepth}{-1}
   \renewcommand{\toc@section}{FrontMatter}
   \setcounter{count@FrontMatter}{0}
-  \ifdouble@space\thesis@ds@normalsize\fi
+  \ifdouble@space\doublespacenormalsize\fi
   }
 
 \newcommand{\mainmatter}{
@@ -90,7 +90,7 @@
   \clearpage
   \pagenumbering{arabic}          % Arabic numbers from here on
   \raggedbottom
-  \ifdouble@space\thesis@ds@normalsize\fi
+  \ifdouble@space\doublespacenormalsize\fi
   \renewcommand{\toc@section}{Chapter}
   \setcounter{count@Chapter}{0}
   }
@@ -235,14 +235,14 @@
 \@seenAppendixfalse
 \@seenBackMatterfalse
 
-\newlength{\thesis@pnumwidth}
-\settowidth{\thesis@pnumwidth}{\textbf{999}}
+\newlength{\umthesis@pnumwidth}
+\settowidth{\umthesis@pnumwidth}{\textbf{999}}
 
-\newlength{\thesis@tocrmarg}
-\settowidth{\thesis@tocrmarg}{\textbf{M999}}
+\newlength{\umthesis@tocrmarg}
+\settowidth{\umthesis@tocrmarg}{\textbf{M999}}
 
-\renewcommand{\@pnumwidth}{\thesis@pnumwidth}
-\renewcommand{\@tocrmarg}{\thesis@tocrmarg}
+\renewcommand{\@pnumwidth}{\umthesis@pnumwidth}
+\renewcommand{\@tocrmarg}{\umthesis@tocrmarg}
 
 \newcommand{\l@FrontMatter}[2]{
   \addpenalty{-\@highpenalty}
@@ -400,9 +400,9 @@
 \def\departmentname#1{\gdef\@departmentname{#1}}
 
 \ifcondensed@frontmatter
-  \input{cfmthesis.clo}
+  \input{umthcfm.clo}
 \else
-  \input{stdthesis.clo}
+  \input{umthstd.clo}
 \fi
 
 
@@ -427,19 +427,19 @@
   \@startsection{section}{1}{\z@}
                 {4.5ex \@plus 1ex \@minus .2ex}
                 {0.001ex \@plus .2ex}
-                {\normalfont\thesis@ds@large\bfseries}}
+                {\normalfont\doublespacelarge\bfseries}}
 
 \renewcommand{\subsection}{
   \@startsection{subsection}{2}{\z@}%
                 {3.25ex \@plus 1ex \@minus .2ex}%
                 {0.001ex \@plus .2ex}%
-                {\normalfont\thesis@ds@normalsize\bfseries}}
+                {\normalfont\doublespacenormalsize\bfseries}}
 
 \renewcommand{\subsubsection}{
   \@startsection{subsubsection}{3}{\z@}%
                 {3.25ex \@plus 1ex \@minus .2ex}%
                 {0.001ex \@plus .2ex}%
-                {\normalfont\thesis@ds@normalsize\bfseries}}
+                {\normalfont\doublespacenormalsize\bfseries}}
 
 \renewcommand{\paragraph}{
   \@startsection{paragraph}{4}{\z@}%
@@ -509,19 +509,19 @@
 %% Fix footnotes -- double spacing between footnotes, single spacing within
 %%     footnotes is what is required.
 
-\newlength{\thesis@basefootnotesep}
-\newlength{\thesis@baseskipfootins}
+\newlength{\umthesis@basefootnotesep}
+\newlength{\umthesis@baseskipfootins}
 
-\setlength{\thesis@basefootnotesep}{\footnotesep}
-\setlength{\thesis@baseskipfootins}{\skip\footins}
+\setlength{\umthesis@basefootnotesep}{\footnotesep}
+\setlength{\umthesis@baseskipfootins}{\skip\footins}
 
 \ifdouble@space
-  \setlength{\footnotesep}{2\thesis@basefootnotesep}
-  \setlength{\skip\footins}{2\thesis@baseskipfootins}
+  \setlength{\footnotesep}{2\umthesis@basefootnotesep}
+  \setlength{\skip\footins}{2\umthesis@baseskipfootins}
 \fi
 
-%\let\thesis@basefootnote\footnote
-%\def\footnote{\renewcommand{\baselinestretch}{1}\thesis@basefootnote}
+%\let\umthesis@basefootnote\footnote
+%\def\footnote{\renewcommand{\baselinestretch}{1}\umthesis@basefootnote}
 
 \let\base@footnotetext\@footnotetext
 \long\def\@footnotetext{%
@@ -540,4 +540,4 @@
   \addcontentsline{toc}{\toc@section}{\MakeUppercase{\bibname}}%
     }{\end{base@thebibliography}}
 
-\newcommand{\doublespace}{\thesis@ds@normalsize}
+\newcommand{\doublespace}{\doublespacenormalsize}

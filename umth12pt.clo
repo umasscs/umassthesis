@@ -1,18 +1,18 @@
 %% 
-%% This is file `ds12pt.clo', generated 
-\ProvidesFile{ds12pt.clo}
-              [1997/06/16 v0.1
+%% This is file `umth12pt.clo', generated 
+\ProvidesFile{umth12pt.clo}
+              [1997/08/21 v1.0
       University of Massachusetts Thesis Class (size option)]
 
-\newcommand\thesis@ds@normalsize{
-   \@setfontsize\thesis@ds@normalsize\@xiipt{24}%
+\newcommand\doublespacenormalsize{
+   \@setfontsize\doublespacenormalsize\@xiipt{24}%
    \abovedisplayskip 24\p@ \@plus3\p@ \@minus7\p@
    \abovedisplayshortskip \z@ \@plus3\p@
    \belowdisplayshortskip 6.5\p@ \@plus3.5\p@ \@minus3\p@
    \belowdisplayskip \abovedisplayskip
    \let\@listi\@listI}
-\newcommand\thesis@ds@large{\@setfontsize\thesis@ds@large\@xivpt{28}}
+\newcommand\doublespacelarge{\@setfontsize\doublespacelarge\@xivpt{28}}
 
 \endinput
 %% 
-%% End of file `ds12pt.clo'.
+%% End of file `umth12pt.clo'.

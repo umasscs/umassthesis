@@ -8,16 +8,10 @@
 %% default for quotations is single-space, and the default for tabular
 %% environments is also single-space.  
 %%
-%% You can change linespacing with the \ls macro.  \ls{1} is
-%% single-spaced, \ls{1.5} is for space-and-a-half, and \ls{2} is, you
-%% guessed it, double-spaced.
-%%
 %% This class adds the following commands and environments to the
 %% report class, upon which it is based:
 %% Commands
 %% ------------
-%% \ls{n}     -- Sets the linespacing to ``n''
-%%
 %% \degree{name}{abbrv} -- Sets the name and abbreviation for the degree.
 %%                         These default to ``Doctor of Philosopy''
 %%                         and ``Ph.D.'', respectively.
@@ -63,8 +57,7 @@
 %%                    Condensed implies singlespace.
 %% thesis changes the default font size to 12pt, but you may specify 10pt or
 %%   11pt in the options.
-\documentclass[]{thesis}
-\usepackage{subfigure}
+\documentclass[singlespace,10pt]{umthesis}
 
 %%
 %% If you have enough figures or tables that you run out of space for their
@@ -118,7 +111,7 @@
 
 %%
 %% Acknowledgements are optional...yeah, right.
-\chapter{Acknowledgements}             % Acknowledgements page
+\chapter{Acknowledgments}             % Acknowledgements page
   Thanks to all those fine shepherds. Not to mention all the great
   border collies and suchlike fine animals.
 
@@ -365,8 +358,8 @@ baah, baah.  Baah, baah, baah.
 
 %%
 %% A bibliography is required.
-\bibliographystyle{plain}
-\bibliography{sample}
+\bibliographystyle{umthesis}
+\bibliography{umthsmpl}
 \end{document}
 
 %%% Local Variables: 

@@ -1,3 +1,9 @@
+%%
+%% This if file `umthstd.clo'.
+\ProvidesFile{umthstd.clo}
+              [1997/08/21 v1.0
+      University of Massachusetts Thesis Class (frontmatter option)]
+
 \renewcommand{\maketitle}{
   \begin{titlepage}
     \pagenumbering{roman}
@@ -5,10 +11,10 @@
     \vfil
     \vskip 60\p@                  % To adjust centering.
     \begin{center}%
-      \thesis@ds@large
+      \doublespacelarge
       \textbf{\uppercase\expandafter{\@title}} \par
       \vfill                      % Vertical space after title.
-      \thesis@ds@normalsize
+      \doublespacenormalsize
       A Dissertation Presented \par
       by \par
       \uppercase\expandafter{\@author}
@@ -50,10 +56,10 @@
   \null
   \vfil
   \begin{center}
-    \thesis@ds@large
+    \doublespacelarge
     \textbf{\uppercase\expandafter{\@title}} \par
     \vfill
-    \thesis@ds@normalsize
+    \doublespacenormalsize
     A Dissertation Presented \par
     by \par
     \uppercase\expandafter{\@author} \par
@@ -120,10 +126,10 @@
   \pagestyle{plain}
   \chapter{\uppercase\expandafter{\abstractname}}
   \begin{center}
-    \thesis@ds@large
+    \doublespacelarge
     \textbf{\uppercase\expandafter{\@title}} \par
     \addvspace{\topskip}
-    \thesis@ds@normalsize
+    \doublespacenormalsize
     \uppercase\expandafter{\@date} \par
     \addvspace{\topskip}
     \uppercase\expandafter{\@author} \par
@@ -136,3 +142,6 @@
   }
   {\par\vfil\null}
 
+\endinput
+%%
+%% End of file `umthstd.clo'.
