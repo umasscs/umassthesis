@@ -225,6 +225,8 @@
 \let\base@tableofcontents\tableofcontents
 \renewcommand{\tableofcontents}{\normalsize\base@tableofcontents}
 
+\renewcommand{\contentsname}{Table of Contents}
+
 \def\thetocindent{-1}
 \newif\if@seenChapter
 \newif\if@seenAppendix
