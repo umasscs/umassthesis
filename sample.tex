@@ -1,0 +1,324 @@
+%% 
+%% This is a sample doctoral dissertation.  It shows the appropriate
+%% structure for your dissertation.  It should handle most of the
+%% strange requirements imposed by the Grad school; like the different
+%% handling of titles of one/many appendices.  It will automatically
+%% handle the linespacing changes.  The body default is double-spaced
+%% (except when you use the singlespace or condensed options).  The
+%% default for quotations is single-space, and the default for tabular
+%% environments is also single-space.  
+%%
+%% You can change linespacing with the \ls macro.  \ls{1} is
+%% single-spaced, \ls{1.5} is for space-and-a-half, and \ls{2} is, you
+%% guessed it, double-spaced.
+%%
+%% This class adds the following commands and environments to the
+%% report class, upon which it is based:
+%% Commands
+%% ------------
+%% \ls{n}     -- Sets the linespacing to ``n''
+%%
+%% \degree{name}{abbrv} -- Sets the name and abbreviation for the degree.
+%%                         These default to ``Doctor of Philosopy''
+%%                         and ``Ph.D.'', respectively.
+%% \copyrightyear{year} -- for the copyright page.
+%% \bachelors{degree}{institution} -- for the abstract
+%% \masters{degree}{institution}   --  "
+%% \committeechair{name}           -- for the signature page
+%% \firstreader{name}              --  "
+%% \secondreader{name}             --  "
+%% \thirdreader{name}              -- (optional)
+%% \fourthreader{name}             --  "
+%% \fifthreader{name}              --  "
+%% \sixthreader{name}              --  "
+%% \departmentchair{name}          -- for the signature page
+%% \departmentname{name}           --  "
+%%
+%% \copyrightpage                  -- produces the copyright page
+%% \signaturepage                  -- produces the signature page
+%%
+%% \frontmatter                    -- these are required in their various
+%% \mainmatter                     -- appropriate locations
+%% \backmatter                     --
+%%
+%% \unnumberedchapter[toc]{name}   -- like \chapter, except that it
+%%                                    produces an unnumbered chapter;
+%%                                    alternatively, like \chapter*,
+%%                                    except that it lists the chapter
+%%                                    in the table of contents.
+%%
+%% New environments:
+%%   dedication  -- for the dedication
+%%   abstract    -- for the abstract
+%%
+%% The thesis documentclass is built on top of the report document class.
+%% It accepts all of the options that the report class accepts, plus the
+%% following:
+%%     doublespace -- the default, indicates double spacing as per U.Mass.
+%%                    requirements.  You will need this when you do your
+%%                    final copy.
+%%     singlespace -- for earlier work, not acceptable to the Grad school
+%%     condensed   -- for earlier work, not acceptable to the Grad school,
+%%                    creates condensed versions of the frontmatter. 
+%%                    Condensed implies singlespace.
+%% thesis changes the default font size to 12pt, but you may specify 10pt or
+%%   11pt in the options.
+\documentclass[singlespace]{thesis}
+
+%%
+%% If you have enough figures or tables that you run out of space for their
+%% numbers in the List of Tables or List of figures, you can use the following
+%% command to adjust the space left for numbers.  The default is shown:
+%%
+%% \setlength{\tablenumberwidth}{2.3em}
+
+\begin{document}
+
+%%
+%% You must fill in all of these appropriately
+\title{On the predilection of sheep for grass\\A really long
+  title\\with multiple lines}
+\author{I. M. Woolly}
+\date{February 1995} % The date you'll actually graduate -- must be
+                     % February, May, or September
+\copyrightyear{1995}
+\bachelors{B.Sc.}{University of Woolloomooloo}
+\masters{M.Sc.}{University of Back of Bourke}
+\committeechair{B. B. Bahh}
+\firstreader{Little Bo Peep}
+\secondreader{R. U. Sheepish}
+\thirdreader{Bill Shepherd}
+\fourthreader{Mary Lamb}   % Optional
+%\fifthreader{}            % Optional
+%\sixthreader{}            % Optional
+\departmentchair{Pete Shearer}
+\departmentname{Department of Sheep Studies}
+
+%%
+%% These lines produce the title, copyright, and signature pages.
+%% They are Mandatory; except that you could leave out the copyright page
+%% if you were preparing a M.Sc. thesis instead of a PhD dissertation.
+\frontmatter
+\maketitle
+\copyrightpage
+\signaturepage
+
+%%
+%% Dedication is optional -- but this is how you create it
+\begin{dedication}              % Dedication page
+  \begin{center}
+    \emph{To those little lost sheep.}
+  \end{center}
+\end{dedication}
+
+%%
+%% Epigraph goes here...(Like Acknowledgements???)
+%% \chapter{Epigraph}?????
+
+%%
+%% Acknowledgements are optional...yeah, right.
+\chapter{Acknowledgements}             % Acknowledgements page
+  Thanks to all those fine shepherds.
+
+%%
+%% Abstract is MANDATORY.
+\begin{abstract}                % Abstract
+  Sheep like grass.  Why?  Let me tell you...
+\end{abstract}
+
+%%
+%% Preface goes here...would be just like Acknowledgements
+%% \chapter{Preface}
+%% ...
+
+
+%%
+%% Table of contents is mandatory, lists of tables and figures are 
+%% mandatory if you have any tables or figures; must be in this order.
+\tableofcontents                % Table of contents
+\listoftables                   % List of Tables
+\listoffigures                  % List of Figures
+
+%%
+%% We don't handle List of Abbreviations
+%% We don't handle Glossary
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Time for the body of the dissertation
+\mainmatter   %% <-- This line is mandatory
+
+%%
+%% If you want an introduction, which is not a numbered chapter, insert
+%% the following two lines.  This is OPTIONAL:
+\unnumberedchapter{Introduction}
+Why on earth do I want to study sheep anyway?
+
+%%
+%% Some sample text
+\chapter{An Introduction to Sheep}
+Is there life after sheep.  Yes, I say there is.%\marginpar{Really?}
+
+\section{Pulling the wool over your eyes}
+
+Sheep are fabulous creatures.  The noises they make are truly stupendous
+\cite{Bah}.  We also want to refer to figure \ref{fig:circle} here.
+Here's some verbatim text to screw us up:
+
+{\small
+\begin{verbatim}
+xxx := y;
+xy := x;
+\end{verbatim}
+}
+
+\begin{figure}
+  \begin{center}
+    \begin{picture}(300,200)
+      \put(150,100){\circle{150}}
+      \put(1,1){\framebox(298,198){}}
+    \end{picture}
+    \caption{A circle in a square.}\label{fig:circle}
+  \end{center}
+\end{figure}
+
+\subsection{All about sheep noises}
+Lots of text here just to fill up some space so we can be sure that we
+really are double-spacing and doing all the other things that might be
+necessary in formatting a dissertation to U.Mass. guidelines.  We're
+also going to have another figure here, figure \ref{fig:disc}, just
+for fun, and to make sure that the list of figures is formatted
+correctly.  Now it's time for table \ref{table:somenumbers}.  We
+really are going to need a third figure, figure \ref{fig:discs}, two
+more tables, table \ref{table:morenumbers} and table
+\ref{table:evenmorenumbers} and a fourth figure, figure
+\ref{fig:circleanddisc}, just to really make sure.
+
+\begin{figure}
+  \begin{center}
+    \begin{picture}(300,200)
+      \put(150,100){\circle*{150}}
+      \put(1,1){\framebox(298,198){}}
+    \end{picture}
+    \caption{A disc in a square.}\label{fig:disc}
+  \end{center}
+\end{figure}
+
+\begin{table}[htbp]
+  \begin{center}
+    \caption{Some numbers.}
+    \label{table:somenumbers}
+    \begin{tabular}{|r|lll|}
+      \hline
+      & Minimum & Average & Maximum \\
+      Type of Animal & Observed & Observed & Observed \\ \hline
+      Cats & 12 & 20 & 24 \\
+      Dogs & 20 & 20 & 20 \\ \hline
+    \end{tabular}
+  \end{center}
+\end{table}
+
+\begin{figure}
+  \begin{center}
+    \begin{picture}(400,200)
+      \put(100,100){\circle*{150}}
+      \put(300,100){\circle*{150}}
+      \put(1,1){\framebox(398,198){}}
+    \end{picture}
+    \caption{Two discs in a rectangle.}\label{fig:discs}
+  \end{center}
+\end{figure}
+
+\begin{table}[htbp]
+  \begin{center}
+    \caption{More numbers.}
+    \label{table:morenumbers}
+    \begin{tabular}{|r|lll|}
+      \hline
+      Type of Animal & Arms & Legs & Ears \\ \hline
+      Person & 2 & 2 & 2 \\
+      Dog & 0 & 4 & 2 \\ \hline
+    \end{tabular}
+  \end{center}
+\end{table}
+
+\begin{table}[htbp]
+  \begin{center}
+    \caption[Even more numbers; together with a caption long enough to ensure that multi-line caption formatting works correctly.]{Even more numbers; together with a caption long enough to ensure that multi-line caption formatting works correctly.  If you want a shorter caption to appear in the Table of Figures you're going to have to put the shorter caption in the \texttt{[]} as shown in this example.}
+    \label{table:evenmorenumbers}
+    \begin{tabular}{|r|lll|}
+      \hline
+      x & 1 & 1 & 1 \\ \hline
+      y & 2 & 2 & 2 \\
+      z & 3 & 3 & 3 \\ \hline
+    \end{tabular}
+  \end{center}
+\end{table}
+
+\begin{figure}
+  \begin{center}
+    \begin{picture}(400,200)
+      \put(100,100){\circle{150}}
+      \put(300,100){\circle*{150}}
+      \put(1,1){\framebox(398,198){}}
+    \end{picture}
+    \caption{A circle and a disc in a square.  We want this caption to
+      be very long to ensure that the formatting of very long captions
+      is handled correctly.  The case of short captions has already
+      been dealt with.}\label{fig:circleanddisc}
+  \end{center}
+\end{figure}
+
+
+
+\subsubsection{Baahs}
+\subsection{Even more about sheep noises}
+\subsection{And yet more about sheep noises}
+
+\section{What about wolves?}
+
+\section{What about shepherds?}
+\subsection{A subsection}
+\subsubsection{Another subsection}
+\paragraph{A Paragraph}
+\subparagraph{A Subparagraph}
+\subparagraph{Another Subparagraph}
+Better not have subparagraphs without text in them.
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "test"
+%%% End: 
+
+\chapter{Sheep and Grass}
+
+\section{Introduction}
+
+Grass is a wonderful food...
+
+%% End of body
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\appendix
+\chapter{THE FIRST APPENDIX TITLE}
+...
+\chapter{THE SECOND APPENDIX TITLE}
+...
+
+%%
+%% Beginning of back matter
+\backmatter  %% <--- mandatory
+
+%%
+%% We don't support endnotes
+
+%%
+%% A bibliography is required.
+\bibliographystyle{thesis}
+\bibliography{sample}
+\end{document}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 
