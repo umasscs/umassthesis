@@ -53,7 +53,7 @@
 %%% Main code
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\newcommand{\toc@section}{}
+\newcommand{\toc@section}{Chapter}
 
 \newcounter{count@FrontMatter}
 \newcounter{count@Chapter}
@@ -163,6 +163,13 @@
   \stepcounter{count@\toc@section}
   }
 
+\renewcommand\chapter{
+  \if@openright\cleardoublepage\else\clearpage\fi
+  \thispagestyle{plain}%
+  \@afterindenttrue
+  \global\@topnum\z@
+  \secdef\@chapter\@schapter
+  }
 \renewcommand{\@makechapterhead}[1]{    % Heading for \chapter command
   \vspace*{30\p@}                       % Space at top of text page.
   \begin{center}\large\bfseries
@@ -171,9 +178,9 @@
       \MakeUppercase\@chapapp\ \thechapter % 'CHAPTER' and number.
       \par\nobreak
     \fi
-  \MakeUppercase{#1}\par
+  \MakeUppercase{#1}
   \end{center}
-  \nobreak                             % TeX penalty to prevent page break.
+  \par\nobreak                          % TeX penalty to prevent page break.
   \vskip 24\p@                          % Space between title and text.
   }
 
