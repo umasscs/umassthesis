@@ -82,6 +82,7 @@
   \setcounter{secnumdepth}{-1}
   \renewcommand{\toc@section}{FrontMatter}
   \setcounter{count@FrontMatter}{0}
+  \ifdouble@space\thesis@ds@normalsize\fi
   }
 
 \newcommand{\mainmatter}{
@@ -221,6 +222,9 @@
 %%% Tweak table of contents
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\let\base@tableofcontents\tableofcontents
+\renewcommand{\tableofcontents}{\normalsize\base@tableofcontents}
+
 \def\thetocindent{-1}
 \newif\if@seenChapter
 \newif\if@seenAppendix
@@ -313,6 +317,7 @@
   \renewcommand{\listoffigures}{}
 \else
   \renewcommand{\listoffigures}{%
+    \normalsize
     \if@twocolumn
       \@restonecoltrue\onecolumn
     \else
@@ -334,6 +339,7 @@
   \renewcommand{\listoftables}{}
 \else
   \renewcommand{\listoftables}{%
+    \normalsize
     \if@twocolumn
       \@restonecoltrue\onecolumn
     \else
