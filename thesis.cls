@@ -36,7 +36,7 @@
 \DeclareOption{doublespace}{\double@spacetrue}
 \DeclareOption{condensed}{\condensed@frontmattertrue\double@spacefalse}
 \DeclareOption{uncondensed}{\condensed@frontmatterfalse}
-\DeclareOption*{\PassOptionsToClass{\CurrentOption}{}report}
+\DeclareOption*{\PassOptionsToClass{\CurrentOption}{report}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Execution of options
@@ -49,9 +49,9 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \LoadClass[\@mysize]{report}[1995/06/26]
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Main code
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newcommand{\toc@section}{Chapter}
 
@@ -255,7 +255,7 @@
   \addvspace{\baselineskip}
   \if@seenChapter\else
     \addvspace{2\baselineskip}
-    \parindent\z@ Chapter \par
+    \parindent\z@ {\bfseries \chaptername} \par
     \addvspace{\baselineskip}
     \@seenChaptertrue
   \fi
@@ -267,7 +267,7 @@
   \addvspace{\baselineskip}
   \if@seenAppendix\else
     \addvspace{2\baselineskip}
-    \parindent\z@ Appendix \par
+    \parindent\z@ {\bfseries \appendixname} \par
     \addvspace{\baselineskip}
     \@seenAppendixtrue
   \fi
@@ -278,7 +278,8 @@
   \addpenalty{-\@highpenalty}
   \addvspace{2\baselineskip}
   \parindent\z@
-  \@dottedtocline{0}{0.0em}{1.5em}{\bfseries APPENDIX: #1}{\bfseries #2}
+  \@dottedtocline{0}{0.0em}{1.5em}{\bfseries
+    \MakeUppercase{\appendixname}: #1}{\bfseries #2}
   }
 
 \newcommand{\l@BackMatter}[2]{
