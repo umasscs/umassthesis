@@ -49,6 +49,9 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \LoadClass[\@mysize]{report}[1995/06/26]
 
+% load case-manipulation commands compatible with hyperref
+\usepackage{textcase}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Post-package-loading fixups.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -118,7 +121,7 @@
 
 \def\@onlyappendix[#1]#2{
   \@schapter{#2}
-  \addcontentsline{toc}{OnlyAppendix}{\MakeUppercase{#1}}
+  \addcontentsline{toc}{OnlyAppendix}{\MakeTextUppercase{#1}}
   }
 
 
@@ -134,7 +137,7 @@
     \def\@tempc{#1}
   \fi
   \chapter*{#2}
-  \addcontentsline{toc}{\toc@section}{\MakeUppercase{\@tempc}}
+  \addcontentsline{toc}{\toc@section}{\MakeTextUppercase{\@tempc}}
 }
 
 %% redefine @chapter to change toc entries
@@ -143,9 +146,9 @@
     \refstepcounter{chapter}%
     \typeout{\@chapapp\space\thechapter.}%
     \addcontentsline{toc}{\toc@section}
-                         {\protect\numberline{\thechapter}\MakeUppercase{#1}}%
+                         {\protect\numberline{\thechapter}{\MakeTextUppercase{#1}}}%
   \else
-    \addcontentsline{toc}{\toc@section}{\MakeUppercase{#1}}%
+    \addcontentsline{toc}{\toc@section}{\MakeTextUppercase{#1}}%
   \fi
   \chaptermark{#1}%
   \addtocontents{lof}{\protect\addvspace{10\p@}}%
@@ -171,11 +174,11 @@
   \vspace*{30\p@}                       % Space at top of text page.
   \begin{center}\large\bfseries
     \ifnum \c@secnumdepth >\m@ne
-      \MakeUppercase\@chapapp\ \thechapter % 'CHAPTER' and number.
+      \MakeTextUppercase{\@chapapp}\ \thechapter % 'CHAPTER' and number.
       \par\nobreak
     \fi
   \addvspace{\topskip}
-  \MakeUppercase{#1}
+  {\MakeTextUppercase{#1}}
   \end{center}
   \par\nobreak                          % TeX penalty to prevent page break.
   \vskip 24\p@                          % Space between title and text.
@@ -191,7 +194,7 @@
   \vspace*{30\p@}                       % Space at top of page.
   \begin{center}
     \large\bfseries                     % Title.
-    \MakeUppercase{#1}\par
+    {\MakeTextUppercase{#1}}\par
   \end{center}
   \nobreak                              % TeX penalty to prevent page break.
   \vskip 24\p@                          % Space between title and text.
@@ -279,7 +282,7 @@
   \addvspace{2\baselineskip}
   \parindent\z@
   \@dottedtocline{0}{0.0em}{1.5em}{\bfseries
-    \MakeUppercase{\appendixname}: #1}{\bfseries #2}
+    {\MakeTextUppercase{\appendixname}}: #1}{\bfseries #2}
   }
 
 \newcommand{\l@BackMatter}[2]{
@@ -326,8 +329,8 @@
       \@restonecolfalse
     \fi
     \chapter{\listfigurename
-      \@mkboth{\MakeUppercase\listfigurename}%
-              {\MakeUppercase\listfigurename}}%
+      \@mkboth{\MakeTextUppercase{\listfigurename}}%
+              {\MakeTextUppercase{\listfigurename}}}%
     \@starttoc{lof}%
     \if@restonecol\twocolumn\fi
     }
@@ -349,7 +352,7 @@
     \fi
     \chapter{\listtablename
       \@mkboth{%
-          \MakeUppercase\listtablename}{\MakeUppercase\listtablename}}%
+          \MakeTextUppercase{\listtablename}}{\MakeTextUppercase{\listtablename}}}%
     \@starttoc{lot}%
     \if@restonecol\twocolumn\fi
     }
@@ -379,8 +382,8 @@
 \def\@degreeabbrv{Ph.D.}
 \newcommand{\degree}[2]{\gdef\@degree{#1} \gdef\@degreeabbrv{#2}}
 \def\copyrightyear#1{\gdef\@copyrightyear{#1}}
-\def\bachelors#1#2{\gdef\@bachelors{#1, \uppercase{#2}}}
-\def\masters#1#2{\gdef\@masters{#1, \uppercase{#2}}}
+\def\bachelors#1#2{\gdef\@bachelors{#1, \MakeTextUppercase{#2}}}
+\def\masters#1#2{\gdef\@masters{#1, \MakeTextUppercase{#2}}}
 \def\committeechair#1{\gdef\@committeechair{#1}}
 \def\firstreader#1{\gdef\@firstreader{#1}}
 \def\secondreader#1{\gdef\@secondreader{#1}}
@@ -537,7 +540,7 @@
 
 \renewenvironment{thebibliography}[1]{
   \begin{base@thebibliography}{#1}
-  \addcontentsline{toc}{\toc@section}{\MakeUppercase{\bibname}}%
+  \addcontentsline{toc}{\toc@section}{\MakeTextUppercase{\bibname}}%
     }{\end{base@thebibliography}}
 
 \newcommand{\doublespace}{\doublespacenormalsize}
