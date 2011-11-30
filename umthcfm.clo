@@ -1,7 +1,7 @@
 %%
 %% This if file `umthcfm.clo'.
 \ProvidesFile{umthcfm.clo}
-              [1997/08/21 v1.0
+              [1999/10/06 21:14:14 1.8
       University of Massachusetts Thesis Class (condensed option)]
 
 \renewcommand{\maketitle}{
@@ -9,7 +9,7 @@
     \pagenumbering{roman}
     \null
     \textbf{\uppercase\expandafter{\@title}} \par % Title must be all caps.
-    A Dissertation Presented \par
+    \umthesis@typename\ Presented \par
     by \par
     \uppercase\expandafter{\@author} \par
     Submitted to the Graduate School of the \par
@@ -37,9 +37,16 @@
   \vspace{6ex}
   \begin{center}
     Committee will be listed as: \par
+    \ifcochairs
+    \@firstchair, Co-chair \par
+    \@secondchair, Co-chair \par
+    \else
     \@committeechair, Chair \par
+    \fi
     \@firstreader, Member \par
+    \ifsecond
     \@secondreader, Member \par
+    \fi
     \ifthird
     \@thirdreader, Member \par
     \fi
@@ -52,6 +59,9 @@
     \ifsixth
     \@sixthreader, Member \par
     \fi
+    \par
+    Department Chair will be listed as: \par
+    \@departmentchair, \umthesis@chairtitle \par
   \end{center}
   }
 
@@ -68,10 +78,19 @@
   \begin{center}
     \textbf{\uppercase\expandafter{\abstractname}} \par
     Degrees will be listed as: \par
-    \@bachelors \par
-    \@masters \par
+    \ifbachelorsone\@bachelors\par\fi
+    \ifbachelorstwo\@secondbachelors\par\fi
+    \ifbachelorsthree\@thirdbachelors\par\fi
+    \ifmastersone\@masters\par\fi
+    \ifmasterstwo\@secondmasters\par\fi
+    \ifmastersthree\@thirdmasters\par\fi
+    \ifpriordoctorate\@priordoctorate\par\fi
     \@degreeabbrv, UNIVERSITY OF MASSACHUSETTS AMHERST \par
+    \ifcochairs
+    Directed by: Professor \@firstchair\ and Professor \@secondchair \par
+    \else
     Directed by: Professor \@committeechair \par
+    \fi
   \end{center} \par \indent 
                                 %    \ifdouble@space\else\ls{2}\fi
   }

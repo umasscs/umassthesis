@@ -18,7 +18,17 @@
 %% \copyrightyear{year} -- for the copyright page.
 %% \bachelors{degree}{institution} -- for the abstract
 %% \masters{degree}{institution}   --  "
+%%     if you have other degrees you may use
+%% \secondbachelors{degree}{institution}
+%% \thirdbachelors{degree}{institution}
+%% \secondmasters{degree}{institution}
+%% \thirdmasters{degree}{institution}
+%% \priordoctorate{degree}{institution}
+%%
 %% \committeechair{name}           -- for the signature page
+%% or, if you have two co-chairs:
+%% \cochairs{first name}{second name}
+%%
 %% \firstreader{name}              --  "
 %% \secondreader{name}             --  "
 %% \thirdreader{name}              -- (optional)
@@ -55,9 +65,29 @@
 %%     condensed   -- for earlier work, not acceptable to the Grad school,
 %%                    creates condensed versions of the frontmatter. 
 %%                    Condensed implies singlespace.
-%% thesis changes the default font size to 12pt, but you may specify 10pt or
+%%     dissertation - the default, indicates that this document is a
+%%                    dissertation.
+%%     proposal    -- indicates that this document is a dissertation proposal,
+%%                    rather than a dissertation.  This will only change the
+%%                    wording on the title and signature pages.
+%%     thesis      -- indicates that this document is a Master's thesis 
+%%                    rather than a doctoral dissertation.  This also changes
+%%                    the default for \degree to Master of Science, M.S.
+%%     allowlisthypenation -- (the default), allows hyphenation of words in
+%%                    the table of contents, the list of figures, and the list
+%%                    of tables.  I believe that this is acceptable to the 
+%%                    Graduate School.
+%%     nolisthyphenation -- disallows hyphenation of words in the table of
+%%                    contents and the list of figures and tables.  Use this 
+%%                    option if the Grad School doesn't like your hyphenation.
+%%     nicerdraft  -- relaxes some of the Grad School's rules for working with
+%%                    drafts -- has no effect when doublespace is in effect
+%%     nonicerdraft -- the default, leaves things in draft as they will be in
+%%                     the final version
+%% umthesis changes the default font size to 12pt, but you may specify 10pt or
 %%   11pt in the options.
-\documentclass[singlespace,10pt]{umthesis}
+\documentclass{umthesis}          % for Ph.D. dissertation or proposal
+% \documentclass[thesis]{umthesis}  % for Master's thesis
 
 %%
 %% If you have enough figures or tables that you run out of space for their
@@ -78,7 +108,10 @@
 \copyrightyear{1995}
 \bachelors{B.Sc.}{University of Woolloomooloo}
 \masters{M.Sc.}{University of Back of Bourke}
-\committeechair{B. B. Bahh}
+\secondmasters{M.Ed.}{Antioch College}
+\priordoctorate{M.D.}{University of Never-never-land}
+% \committeechair{B. B. Bahh}
+\cochairs{B. B. Bahh}{I. M. A. Wolf}
 \firstreader{Little Bo Peep}
 \secondreader{R. U. Sheepish}
 \thirdreader{Bill Shepherd}
@@ -86,15 +119,46 @@
 %\fifthreader{}            % Optional
 %\sixthreader{}            % Optional
 \departmentchair{Pete Shearer}
-\departmentname{Department of Sheep Studies}
+\departmentname{Sheep Studies}
+
+%% If your degree is something other than a Ph.D. (for a dissertation), or
+%% an M.S. (for a thesis), you will need to uncomment the appropriate
+%% following line:
+%%
+%% \degree{Doctor of Education}{Ed.D.}
+%% \degree{Doctor of Philosophy}{Ph.D.}
+%%
+%% \degree{Master of Arts}{M.A.}
+%% \degree{Master of Arts in Teaching}{M.A.T.}
+%% \degree{Master of Business Administration}{M.B.A.}
+%% \degree{Master of Education}{M.Ed.}
+%% \degree{Master of Fine Arts}{M.F.A.}
+%% \degree{Master of Landscape Architecture}{M.L.A.}
+%% \degree{Master of Music}{M.M.}
+%% \degree{Master of Public Administration}{M.P.A.}
+\degree{Master of Public Health}{M.P.H.}
+%% \degree{Master of Regional Planning}{M.R.P.}
+%% \degree{Master of Science}{M.S.}
+%% \degree{Master of Science in Accounting}{M.S. Acctg.}
+%% \degree{Master of Science in Chemical Engineering}{M.S. Ch.E.}
+%% \degree{Master of Science in Civil Engineering}{M.S.C.E.}
+%% \degree{Master of Science in Electrical and Computer Engineering}{M.S.E.C.E.}
+%% \degree{Master of Science in Engineering Management}{M.S. Eng. Mgt.}
+%% \degree{Master of Science in Environmental Engineering}{M.S. Env. E.}
+%% \degree{Master of Science in Industrial Engineering and Operations Research}{M.S.I.E.O.R.}
+%% \degree{Master of Science in Manufacturing Engineering}{M.S. Mfg. Eng.}
+%% \degree{Master of Science in Mechanical Engineering}{M.S.M.E.}
+%%
+%% \degree{Professional Master of Business Administration}{P.M.B.A.}
+
 
 %%
 %% These lines produce the title, copyright, and signature pages.
 %% They are Mandatory; except that you could leave out the copyright page
-%% if you were preparing a M.Sc. thesis instead of a PhD dissertation.
+%% if you were preparing an M.S. thesis instead of a PhD dissertation.
 \frontmatter
 \maketitle
-\copyrightpage
+\copyrightpage     %% not required for an M.S. thesis
 \signaturepage
 
 %%
@@ -106,7 +170,7 @@
 \end{dedication}
 
 %%
-%% Epigraph goes here...(Like Acknowledgements???)
+%% Epigraph goes here...(aka frontispiece)
 %% \chapter{Epigraph}?????
 
 %%
@@ -116,15 +180,15 @@
   border collies and suchlike fine animals.
 
 %%
-%% Abstract is MANDATORY.
+%% Abstract is MANDATORY. -- Except for MS theses
 \begin{abstract}                % Abstract
   Sheep like grass.  Why?  Let me tell you.  Sheep are ruminants, like
   cattle, deer, and horses.  They have stomachs that are specialized...
 \end{abstract}
 
 %%
-%% Preface goes here...would be just like Acknowledgements
-%% \chapter{Preface}
+%% Preface goes here...would be just like Acknowledgements -- optional
+%% \chapter{Preface} 
 %% ...
 
 
@@ -339,6 +403,11 @@ baah, baah.  Baah, baah, baah.  Baah, baah, baah.  Baah, baah, baah.
 Baah, baah, baah.  Baah, baah, baah.  Baah, baah, baah.  Baah, baah,
 baah.  Baah, baah, baah.  Baah, baah, baah.  Baah, baah, baah.  Baah,
 baah, baah.  Baah, baah, baah. 
+
+\section{The antidisestablishmentarainism supercalifragilisticexpialidocious longlonglonglonglongword}
+
+Some text for this section.
+
 
 %% End of body
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

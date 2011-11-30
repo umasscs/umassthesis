@@ -1,7 +1,7 @@
 %% 
 %% This is file `umth11pt.clo'.
 \ProvidesFile{umth11pt.clo}
-              [1997/08/21 v1.0
+              [1997/08/22 17:32:44 1.2
       University of Massachusetts Thesis Class (size option)]
 
 \newcommand\doublespacenormalsize{

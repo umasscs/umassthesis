@@ -12,23 +12,89 @@
 %%  Author: Tony Hosking, 1995
 %%  Turned into a class file and rewritten by John Ridgway, 1997
 %%
+%%  umthesis.cls,v 1.25 2003/10/16 20:20:51 ridgway Exp
+%%  umthesis.cls,v
+%%  Revision 1.25  2003/10/16 20:20:51  ridgway
+%%  Make umthesis work with the natbib package, and clean up some miscellaneous
+%%  formatting things.
+%%
+%%  Revision 1.24  2002/01/21 16:32:47  ridgway
+%%  Modified umthesis.cls and umthsmpl.tex to (better) support Master's theses.
+%%  A new class option "thesis" has been added to the umthesis class.  This
+%%  will generate a Master's thesis instead of a Doctoral dissertation.  (The
+%%  differences are mostly in a few words.)  The umthsmpl.tex file was updated
+%%  to show how to make a thesis, and to include (commented out) all of the
+%%  possible degrees.
+%%
+%%  Revision 1.23  2002/01/14 19:01:42  ridgway
+%%  Two fixes:
+%%    1) fix overfull hbox problem in Table of Contents and List of Figures
+%%       and Tables.  Formerly if the page numbers were too wide they would
+%%       jut out into the margin.  As a side-effect of this the leaders extend
+%%       as close to the page number as they can (OK by the Grad School).
+%%    2) Make Table of Contents (etc.) entries ragged-right (as per Grad
+%%       School).  This only affects multi-line headings.
+%%
+%%  Revision 1.22  2001/12/12 16:57:31  ridgway
+%%  Fixed titles and chapter titles so that they are single-spaced everywhere
+%%  and removed the underlining from "Page" in the table of contents.
+%%
+%%  Revision 1.21  2001/10/15 14:45:43  ridgway
+%%  Block quotations were (erroneously) double-spaced.  They are now
+%%  single-spaced as required.
+%%
+%%  Revision 1.20  2001/09/24 16:10:09  ridgway
+%%  Fixed heading problem with single appendices.
+%%
+%%  Revision 1.19  2000/09/01 19:54:45  ridgway
+%%  Added the nicerdraft and nonicerdraft options -- see umthsmpl.tex for their
+%%  (brief) explanations.
+%%
+%%  Revision 1.18  1999/10/06 21:14:16  ridgway
+%%  Changed table of contents to include the word CHAPTER instead of
+%%  Chapter at the beginning of the chapters.  Also ensured that there are
+%%  at least two leaders at the end of every entry in the TOC, LOF, and
+%%  LOT. -- Required by the Grad School.
+%%
+%%  Fixed problem with numbering of sole appendix.  (Section numbers must
+%%  begin with A. even though the appendix is NOT Appendix A...  The Grad
+%%  School strikes again.)
+%%
+%%  Changes to allow someone to have no prior bachelor's degree or no
+%%  prior master's degree.  (As per Eric McCall.)
+%%
+%%  Fixed typo in comments in umthsmpl.tex.
+%%
+%%  Revision 1.17  1999/06/24 20:38:24  ridgway
+%%  Added support for multiple bachelors and masters degrees, and for a prior
+%%  doctoral degree.  Improved spacing in singlespace mode.
+%%
+%%  Added allowlisthyphenation and nolisthyphenation options to umthesis class.
+%%  Also allowed a little more space for page numbers in the table of contents
+%%  and the list of figures and tables.
+%%
+%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Identification part
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{umthesis}[1997/08/21 v1.0 U.Mass. dissertation class]
+\ProvidesClass{umthesis}[2003/10/16 20:20:51 1.25
+                         U.Mass. dissertation class]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Initial code
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newif\ifdouble@space
+\newif\ifcondensed@frontmatter
+\newif\ifnicer@draft
+\newcommand{\@degree}{Doctor of Philosophy}
+\newcommand{\@degreeabbrv}{Ph.D.}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Declaration of options
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newif\ifdouble@space
-\newif\ifcondensed@frontmatter
 \DeclareOption{10pt}{\def\@mysize{10pt}}
 \DeclareOption{11pt}{\def\@mysize{11pt}}
 \DeclareOption{12pt}{\def\@mysize{12pt}}
@@ -36,21 +102,28 @@
 \DeclareOption{doublespace}{\double@spacetrue}
 \DeclareOption{condensed}{\condensed@frontmattertrue\double@spacefalse}
 \DeclareOption{uncondensed}{\condensed@frontmatterfalse}
+\DeclareOption{proposal}{\def\umthesis@typename{A Dissertation Outline}}
+\DeclareOption{dissertation}{\def\umthesis@typename{A Dissertation}}
+\DeclareOption{thesis}{\def\umthesis@typename{A Thesis}%
+  \renewcommand{\@degree}{Master of Science}%
+  \renewcommand{\@degreeabbrv}{M.S.}}
+\DeclareOption{nolisthyphenation}{\def\umthesis@listhyphenpenalty{10000}}
+\DeclareOption{allowlisthyphenation}{\def\umthesis@listhyphenpenalty{50}}
+\DeclareOption{nicerdraft}{\nicer@drafttrue}
+\DeclareOption{nonicerdraft}{\nicer@draftfalse}
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{report}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Execution of options
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\ExecuteOptions{12pt,doublespace,uncondensed}
+\ExecuteOptions{12pt,doublespace,uncondensed,dissertation,%
+                nolisthyphenation,nonicerdraft}
 \ProcessOptions
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Package loading
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\LoadClass[\@mysize]{report}[1995/06/26]
-
-% load case-manipulation commands compatible with hyperref
-\usepackage{textcase}
+\LoadClass[\@mysize]{report}[1996/01/02]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Post-package-loading fixups.
@@ -68,14 +141,16 @@
 \newcounter{count@Appendix}
 \newcounter{count@BackMatter}
 
-\AtEndDocument{\immediate\write\@mainaux{\string\setcounter{count@FrontMatter}
-    {\arabic{count@FrontMatter}}}}
-\AtEndDocument{\immediate\write\@mainaux{\string\setcounter{count@Chapter}
-    {\arabic{count@Chapter}}}}
-\AtEndDocument{\immediate\write\@mainaux{\string\setcounter{count@Appendix}
-    {\arabic{count@Appendix}}}}
-\AtEndDocument{\immediate\write\@mainaux{\string\setcounter{count@BackMatter}
-    {\arabic{count@BackMatter}}}}
+\AtEndDocument{%
+  \immediate\write\@mainaux{\string\setcounter{count@FrontMatter}%
+    {\arabic{count@FrontMatter}}}%
+  \immediate\write\@mainaux{\string\setcounter{count@Chapter}%
+    {\arabic{count@Chapter}}}%
+  \immediate\write\@mainaux{\string\setcounter{count@Appendix}%
+    {\arabic{count@Appendix}}}%
+  \immediate\write\@mainaux{\string\setcounter{count@BackMatter}%
+    {\arabic{count@BackMatter}}}%
+  }
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -119,11 +194,23 @@
   \normalsize
   }
 
-\def\@onlyappendix[#1]#2{
-  \@schapter{#2}
-  \addcontentsline{toc}{OnlyAppendix}{\MakeTextUppercase{#1}}
-  }
+\def\@onlyappendix[#1]#2{%
+  \refstepcounter{chapter}%
+  \typeout{\@chapapp.}%
+  \addcontentsline{toc}{OnlyAppendix}{\MakeUppercase{#1}}%
+  \chaptermark{#1}%
+  \if@twocolumn%
+    \@topnewpage[\@makeonlyappendixhead{#2}]%
+  \else%
+    \@makeonlyappendixhead{#2}%
+    \@afterheading%
+  \fi%
+  \renewcommand{\thesection}{A.\@arabic\c@section}
+  \stepcounter{count@\toc@section}
+ }
 
+\def\@makeonlyappendixhead#1{%
+  { \def\thechapter{} \@makechapterhead{#1} } }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Chapter/Appendix related stuff
@@ -137,7 +224,7 @@
     \def\@tempc{#1}
   \fi
   \chapter*{#2}
-  \addcontentsline{toc}{\toc@section}{\MakeTextUppercase{\@tempc}}
+  \addcontentsline{toc}{\toc@section}{\MakeUppercase{\@tempc}}
 }
 
 %% redefine @chapter to change toc entries
@@ -146,13 +233,11 @@
     \refstepcounter{chapter}%
     \typeout{\@chapapp\space\thechapter.}%
     \addcontentsline{toc}{\toc@section}
-                         {\protect\numberline{\thechapter}{\MakeTextUppercase{#1}}}%
+                         {\protect\numberline{\thechapter.}\MakeUppercase{#1}}%
   \else
-    \addcontentsline{toc}{\toc@section}{\MakeTextUppercase{#1}}%
+    \addcontentsline{toc}{\toc@section}{\MakeUppercase{#1}}%
   \fi
   \chaptermark{#1}%
-  \addtocontents{lof}{\protect\addvspace{10\p@}}%
-  \addtocontents{lot}{\protect\addvspace{10\p@}}%
   \if@twocolumn
     \@topnewpage[\@makechapterhead{#2}]%
   \else
@@ -162,23 +247,35 @@
   \stepcounter{count@\toc@section}
   }
 
-\renewcommand\chapter{
-  \if@openright\cleardoublepage\else\clearpage\fi
-  \thispagestyle{plain}%
-  \@afterindenttrue
-  \global\@topnum\z@
-  \secdef\@chapter\@schapter
-  }
+\newif\ifrenew@chapter
+\ifdouble@space%
+  \renew@chaptertrue%
+\else%
+  \ifnicer@draft%
+    \renew@chapterfalse%
+  \else%
+    \renew@chaptertrue%
+  \fi%
+\fi
+\ifrenew@chapter%
+  \renewcommand\chapter{%
+    \if@openright\cleardoublepage\else\clearpage\fi%
+    \thispagestyle{plain}%
+    \@afterindenttrue%
+    \global\@topnum\z@%
+    \secdef\@chapter\@schapter%
+  }%
+\fi
 
 \renewcommand{\@makechapterhead}[1]{    % Heading for \chapter command
   \vspace*{30\p@}                       % Space at top of text page.
   \begin{center}\large\bfseries
     \ifnum \c@secnumdepth >\m@ne
-      \MakeTextUppercase{\@chapapp}\ \thechapter % 'CHAPTER' and number.
+      \MakeUppercase\@chapapp\ \thechapter % 'CHAPTER' and number.
       \par\nobreak
     \fi
   \addvspace{\topskip}
-  {\MakeTextUppercase{#1}}
+  \MakeUppercase{#1}
   \end{center}
   \par\nobreak                          % TeX penalty to prevent page break.
   \vskip 24\p@                          % Space between title and text.
@@ -194,7 +291,7 @@
   \vspace*{30\p@}                       % Space at top of page.
   \begin{center}
     \large\bfseries                     % Title.
-    {\MakeTextUppercase{#1}}\par
+    \MakeUppercase{#1}\par
   \end{center}
   \nobreak                              % TeX penalty to prevent page break.
   \vskip 24\p@                          % Space between title and text.
@@ -225,8 +322,20 @@
 %%% Tweak table of contents
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\let\base@tableofcontents\tableofcontents
-\renewcommand{\tableofcontents}{\normalsize\base@tableofcontents}
+\renewcommand{\tableofcontents}{%
+    \if@twocolumn
+      \@restonecoltrue\onecolumn
+    \else
+      \@restonecolfalse
+    \fi
+    \normalsize
+    \chapter*{\contentsname
+        \@mkboth{%
+           \MakeUppercase\contentsname}{\MakeUppercase\contentsname}}%
+    {\hfill \textbf{Page}\par}%
+    {\hyphenpenalty=\umthesis@listhyphenpenalty\@starttoc{toc}}%
+    \if@restonecol\twocolumn\fi
+    }
 
 \renewcommand{\contentsname}{Table of Contents}
 
@@ -238,14 +347,33 @@
 \@seenAppendixfalse
 \@seenBackMatterfalse
 
-\newlength{\umthesis@pnumwidth}
-\settowidth{\umthesis@pnumwidth}{\textbf{999}}
+\renewcommand{\@dotsep}{2}
 
-\newlength{\umthesis@tocrmarg}
-\settowidth{\umthesis@tocrmarg}{\textbf{M999}}
+\newlength{\umthesis@contentshangindent}
+\setlength{\umthesis@contentshangindent}{1.55em}
 
-\renewcommand{\@pnumwidth}{\umthesis@pnumwidth}
-\renewcommand{\@tocrmarg}{\umthesis@tocrmarg}
+\renewcommand{\@dottedtocline}[5]{%
+  \ifnum #1>\c@tocdepth \else
+    \ifnum \thetocindent = #1 \else
+      \def\thetocindent{#1}
+      \ifdouble@space\addvspace{\topskip}\fi
+    \fi
+    \vskip \z@ \@plus.2\p@
+    {\leftskip #2\relax \rightskip \@tocrmarg \parfillskip -\rightskip
+     \advance\rightskip by 0pt plus 1fil\relax% ragged-right contents...
+     \parindent #2\relax\@afterindenttrue
+     \interlinepenalty\@M
+     \leavevmode
+     \@tempdima #3\relax
+     \advance\leftskip \@tempdima \null\nobreak\hskip -\leftskip
+     \hangindent\umthesis@contentshangindent
+     {#4}\nobreak%
+     \leaders\hbox{$\m@th\mkern \@dotsep mu \hbox{.}\mkern \@dotsep mu$}%
+             \hskip3em plus1fill\relax%
+       \normalfont \normalcolor #5%
+     \par}%
+  \fi}
+
 
 \newcommand{\l@FrontMatter}[2]{
   \addpenalty{-\@highpenalty}
@@ -258,19 +386,20 @@
   \addvspace{\baselineskip}
   \if@seenChapter\else
     \addvspace{2\baselineskip}
-    \parindent\z@ {\bfseries \chaptername} \par
+    \parindent\z@ {\bfseries \MakeUppercase{\chaptername}} \par
     \addvspace{\baselineskip}
     \@seenChaptertrue
   \fi
   \@dottedtocline{0}{0.0em}{1.5em}{\bfseries#1}{\bfseries#2}
   }
 
+\newcommand{\appendicesname}{APPENDICES}
+
 \newcommand{\l@Appendix}[2]{
   \addpenalty{-\@highpenalty}
-  \addvspace{\baselineskip}
   \if@seenAppendix\else
     \addvspace{2\baselineskip}
-    \parindent\z@ {\bfseries \appendixname} \par
+    \parindent\z@ {\bfseries \appendicesname} \par
     \addvspace{\baselineskip}
     \@seenAppendixtrue
   \fi
@@ -282,7 +411,7 @@
   \addvspace{2\baselineskip}
   \parindent\z@
   \@dottedtocline{0}{0.0em}{1.5em}{\bfseries
-    {\MakeTextUppercase{\appendixname}}: #1}{\bfseries #2}
+    \MakeUppercase{\appendixname}: #1}{\bfseries #2}
   }
 
 \newcommand{\l@BackMatter}[2]{
@@ -295,29 +424,12 @@
   \@dottedtocline{0}{0.0em}{1.5em}{\bfseries #1}{\bfseries #2}
   }
 
-%\renewcommand{\@pnumwidth}{1.7em}
-%\renewcommand{\@tocrmarg}{2.7em}
-
-
-\let\@basedottedtocline\@dottedtocline
-\renewcommand{\@dottedtocline}[5]{
-  \ifnum #1>\c@tocdepth
-  \else
-    \ifnum \thetocindent = #1 \else
-      \def\thetocindent{#1}
-      \ifdouble@space\addvspace{\topskip}\fi
-    \fi
-    \@basedottedtocline{#1}{#2}{#3}{#4}{#5}
-  \fi
-  }
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Tweak lists of tables and figures
 %%
 \newlength{\tablenumberwidth}
 \setlength{\tablenumberwidth}{2.3em}
-
 \ifcondensed@frontmatter
   \renewcommand{\listoffigures}{}
 \else
@@ -329,15 +441,16 @@
       \@restonecolfalse
     \fi
     \chapter{\listfigurename
-      \@mkboth{\MakeTextUppercase{\listfigurename}}%
-              {\MakeTextUppercase{\listfigurename}}}%
-    \@starttoc{lof}%
+      \@mkboth{\MakeUppercase\listfigurename}%
+              {\MakeUppercase\listfigurename}}%
+    {\normalsize\parindent\z@\textbf{Figure \hfill Page}\par}%
+    {\hyphenpenalty=\umthesis@listhyphenpenalty\@starttoc{lof}}%
     \if@restonecol\twocolumn\fi
     }
 \fi
 \renewcommand{\l@figure}[2]{
-  \vspace{\baselineskip}
-  \@basedottedtocline{1}{1.5em}{\tablenumberwidth}{#1}{#2}
+  \addvspace{\baselineskip}
+  \@dottedtocline{1}{1.5em}{\tablenumberwidth}{#1}{#2}
   }
 
 \ifcondensed@frontmatter
@@ -352,12 +465,16 @@
     \fi
     \chapter{\listtablename
       \@mkboth{%
-          \MakeTextUppercase{\listtablename}}{\MakeTextUppercase{\listtablename}}}%
-    \@starttoc{lot}%
+          \MakeUppercase\listtablename}{\MakeUppercase\listtablename}}%
+    {\normalsize\parindent\z@\textbf{Table \hfill Page}\par}%
+    {\hyphenpenalty=\umthesis@listhyphenpenalty\@starttoc{lot}}%
     \if@restonecol\twocolumn\fi
     }
 \fi
 \let\l@table\l@figure
+
+\let\umthesis@base@starttoc\@starttoc
+\renewcommand{\@starttoc}{\tolerance10000\umthesis@base@starttoc}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -378,15 +495,45 @@
 %% Added commands and environments for front matter
 %%
 
-\def\@degree{Doctor of Philosophy}
-\def\@degreeabbrv{Ph.D.}
 \newcommand{\degree}[2]{\gdef\@degree{#1} \gdef\@degreeabbrv{#2}}
 \def\copyrightyear#1{\gdef\@copyrightyear{#1}}
-\def\bachelors#1#2{\gdef\@bachelors{#1, \MakeTextUppercase{#2}}}
-\def\masters#1#2{\gdef\@masters{#1, \MakeTextUppercase{#2}}}
-\def\committeechair#1{\gdef\@committeechair{#1}}
+%
+% Bachelor's degrees
+\newif\ifbachelorsone
+\bachelorsonefalse
+\def\bachelors#1#2{\gdef\@bachelors{#1, \uppercase{#2}}\bachelorsonetrue}
+\newif\ifbachelorstwo
+\bachelorstwofalse
+\def\secondbachelors#1#2{\gdef\@secondbachelors{#1, \uppercase{#2}}\bachelorstwotrue}
+\newif\ifbachelorsthree
+\bachelorsthreefalse
+\def\thirdbachelors#1#2{\gdef\@thirdbachelors{#1, \uppercase{#2}}\bachelorsthreetrue}
+%
+% Master's degrees
+\newif\ifmastersone
+\mastersonefalse
+\def\masters#1#2{\gdef\@masters{#1, \uppercase{#2}}\mastersonetrue}
+\newif\ifmasterstwo
+\masterstwofalse
+\def\secondmasters#1#2{\gdef\@secondmasters{#1, \uppercase{#2}}\masterstwotrue}
+\newif\ifmastersthree
+\mastersthreefalse
+\def\thirdmasters#1#2{\gdef\@thirdmasters{#1, \uppercase{#2}}\mastersthreetrue}
+%
+% Doctorates
+\newif\ifpriordoctorate
+\priordoctoratefalse
+\def\priordoctorate#1#2{\gdef\@priordoctorate{#1, \uppercase{#2}}\priordoctoratetrue}
+%
+% Chair(s)
+\newif\ifcochairs
+\cochairsfalse
+\def\committeechair#1{\gdef\@committeechair{#1}\cochairsfalse}
+\def\cochairs#1#2{\gdef\@firstchair{#1}\gdef\@secondchair{#2}\cochairstrue}
 \def\firstreader#1{\gdef\@firstreader{#1}}
-\def\secondreader#1{\gdef\@secondreader{#1}}
+\newif\ifsecond
+\secondfalse
+\def\secondreader#1{\gdef\@secondreader{#1}\secondtrue}
 \newif\ifthird
 \thirdfalse
 \def\thirdreader#1{\gdef\@thirdreader{#1}\thirdtrue}
@@ -399,7 +546,10 @@
 \newif\ifsixth
 \sixthfalse
 \def\sixthreader#1{\gdef\@sixthreader{#1}\sixthtrue}
-\def\departmentchair#1{\gdef\@departmentchair{#1}}
+\newcommand{\departmentchair}[2][Department Chair]{
+  \gdef\umthesis@chairtitle{#1}
+  \gdef\@departmentchair{#2}
+  }
 \def\departmentname#1{\gdef\@departmentname{#1}}
 
 \ifcondensed@frontmatter
@@ -425,7 +575,7 @@
   \setcounter{tocdepth}{3}
 \fi
 
-
+\ifdouble@space
 \renewcommand{\section}{
   \@startsection{section}{1}{\z@}
                 {4.5ex \@plus 1ex \@minus .2ex}
@@ -455,8 +605,37 @@
                 {0.0ex \@plus1ex \@minus .2ex}%
                 {-1em}%
                 {\normalfont\normalsize\bfseries}}
+\else\ifnicer@draft\else
+\renewcommand{\section}{
+  \@startsection{section}{1}{\z@}
+                {3.5ex \@plus 1ex \@minus .2ex}
+                {2.3ex \@plus .2ex}
+                {\normalfont\large\bfseries}}
 
+\renewcommand{\subsection}{
+  \@startsection{subsection}{2}{\z@}%
+                {3.25ex \@plus 1ex \@minus .2ex}%
+                {1.5ex \@plus .2ex}%
+                {\normalfont\normalsize\bfseries}}
 
+\renewcommand{\subsubsection}{
+  \@startsection{subsubsection}{3}{\z@}%
+                {3.25ex \@plus 1ex \@minus .2ex}%
+                {1.5ex \@plus .2ex}%
+                {\normalfont\normalsize\bfseries}}
+
+\renewcommand{\paragraph}{
+  \@startsection{paragraph}{4}{\z@}%
+                {3.25ex \@plus1ex \@minus.2ex}%
+                {-1em}%
+                {\normalfont\normalsize\bfseries}}
+
+\renewcommand{\subparagraph}{
+  \@startsection{subparagraph}{5}{\parindent}%
+                {3.25ex \@plus1ex \@minus .2ex}%
+                {-1em}%
+                {\normalfont\normalsize\bfseries}}
+\fi\fi
 %%
 %% Fix captions
 %%
@@ -483,29 +662,24 @@
 %% Default spacing of tabular environment to single
 %%
 \let\base@tabular\tabular
-\renewcommand{\tabular}[2][]{
-%  \ls{1}
-  \base@tabular[#1]{#2}}
+\renewcommand{\tabular}[2][]{\base@tabular[#1]{#2}}
 
 %%
 %% Fix quote and quotation environments
 %%
-\renewenvironment{quotation}{
-  \list{}{
-    \listparindent 1.5em
-    \itemindent    \listparindent
-    \rightmargin   \leftmargin
-    \parsep        \z@ \@plus\p@
-    }
-  \item[]
-%  \ls{1}
-  }
+\renewenvironment{quotation}{%
+  \list{}{%
+    \listparindent 1.5em%
+    \itemindent    \listparindent%
+    \rightmargin   \leftmargin%
+    \parsep        \z@ \@plus\p@%
+    }%
+  \normalsize%
+  \item[]%
+  }%
 {\endlist}
-\renewenvironment{quote}{
-  \list{}{\rightmargin\leftmargin}\item[]
-%          \ls{1}
-          }
-         {\endlist}
+\renewenvironment{quote}{\list{}{\rightmargin\leftmargin}\item[]}
+                        {\endlist}
 
 
 %%
@@ -523,9 +697,6 @@
   \setlength{\skip\footins}{2\umthesis@baseskipfootins}
 \fi
 
-%\let\umthesis@basefootnote\footnote
-%\def\footnote{\renewcommand{\baselinestretch}{1}\umthesis@basefootnote}
-
 \let\base@footnotetext\@footnotetext
 \long\def\@footnotetext{%
   \renewcommand{\baselinestretch}{1}%
@@ -535,12 +706,13 @@
 %%
 %% Fix the bibliography
 
-\let\base@thebibliography\thebibliography
-\let\endbase@thebibliography\endthebibliography
-
-\renewenvironment{thebibliography}[1]{
-  \begin{base@thebibliography}{#1}
-  \addcontentsline{toc}{\toc@section}{\MakeTextUppercase{\bibname}}%
-    }{\end{base@thebibliography}}
+\AtBeginDocument{%
+  \let\base@thebibliography\thebibliography%
+  \let\endbase@thebibliography\endthebibliography%
+  %
+  \renewenvironment{thebibliography}[1]{%
+    \begin{base@thebibliography}{#1}%
+      \addcontentsline{toc}{\toc@section}{\MakeUppercase{\bibname}}%
+    }{\end{base@thebibliography}}}
 
 \newcommand{\doublespace}{\doublespacenormalsize}
