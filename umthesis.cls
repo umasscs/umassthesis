@@ -124,6 +124,7 @@
 %% Package loading
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \LoadClass[\@mysize]{report}[1996/01/02]
+\usepackage{textcase}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Post-package-loading fixups.
@@ -197,7 +198,7 @@
 \def\@onlyappendix[#1]#2{%
   \refstepcounter{chapter}%
   \typeout{\@chapapp.}%
-  \addcontentsline{toc}{OnlyAppendix}{\MakeUppercase{#1}}%
+  \addcontentsline{toc}{OnlyAppendix}{\MakeTextUppercase{#1}}%
   \chaptermark{#1}%
   \if@twocolumn%
     \@topnewpage[\@makeonlyappendixhead{#2}]%
@@ -224,28 +225,28 @@
     \def\@tempc{#1}
   \fi
   \chapter*{#2}
-  \addcontentsline{toc}{\toc@section}{\MakeUppercase{\@tempc}}
+  \addcontentsline{toc}{\toc@section}{\MakeTextUppercase{\@tempc}}
 }
 
-%% redefine @chapter to change toc entries
-\def\@chapter[#1]#2{
-  \ifnum \c@secnumdepth >\m@ne
-    \refstepcounter{chapter}%
-    \typeout{\@chapapp\space\thechapter.}%
-    \addcontentsline{toc}{\toc@section}
-                         {\protect\numberline{\thechapter.}\MakeUppercase{#1}}%
-  \else
-    \addcontentsline{toc}{\toc@section}{\MakeUppercase{#1}}%
-  \fi
-  \chaptermark{#1}%
-  \if@twocolumn
-    \@topnewpage[\@makechapterhead{#2}]%
-  \else
-    \@makechapterhead{#2}%
-    \@afterheading
-  \fi
-  \stepcounter{count@\toc@section}
-  }
+%   %% redefine @chapter to change toc entries
+%   \def\@chapter[#1]#2{
+%     \ifnum \c@secnumdepth >\m@ne
+%       \refstepcounter{chapter}%
+%       \typeout{\@chapapp\space\thechapter.}%
+%       \addcontentsline{toc}{\toc@section}
+%                            {\protect\numberline{\thechapter.}\MakeTextUppercase{#1}}%
+%     \else
+%       \addcontentsline{toc}{\toc@section}{\MakeTextUppercase{#1}}%
+%     \fi
+%     \chaptermark{#1}%
+%     \if@twocolumn
+%       \@topnewpage[\@makechapterhead{#2}]%
+%     \else
+%       \@makechapterhead{#2}%
+%       \@afterheading
+%     \fi
+%     \stepcounter{count@\toc@section}
+%     }
 
 \newif\ifrenew@chapter
 \ifdouble@space%
@@ -271,11 +272,11 @@
   \vspace*{30\p@}                       % Space at top of text page.
   \begin{center}\large\bfseries
     \ifnum \c@secnumdepth >\m@ne
-      \MakeUppercase\@chapapp\ \thechapter % 'CHAPTER' and number.
+      \MakeTextUppercase\@chapapp\ \thechapter % 'CHAPTER' and number.
       \par\nobreak
     \fi
   \addvspace{\topskip}
-  \MakeUppercase{#1}
+  \MakeTextUppercase{#1}
   \end{center}
   \par\nobreak                          % TeX penalty to prevent page break.
   \vskip 24\p@                          % Space between title and text.
@@ -291,7 +292,7 @@
   \vspace*{30\p@}                       % Space at top of page.
   \begin{center}
     \large\bfseries                     % Title.
-    \MakeUppercase{#1}\par
+    \MakeTextUppercase{#1}\par
   \end{center}
   \nobreak                              % TeX penalty to prevent page break.
   \vskip 24\p@                          % Space between title and text.
@@ -331,7 +332,7 @@
     \normalsize
     \chapter*{\contentsname
         \@mkboth{%
-           \MakeUppercase\contentsname}{\MakeUppercase\contentsname}}%
+           \MakeTextUppercase\contentsname}{\MakeTextUppercase\contentsname}}%
     {\hfill \textbf{Page}\par}%
     {\hyphenpenalty=\umthesis@listhyphenpenalty\@starttoc{toc}}%
     \if@restonecol\twocolumn\fi
@@ -386,7 +387,7 @@
   \addvspace{\baselineskip}
   \if@seenChapter\else
     \addvspace{2\baselineskip}
-    \parindent\z@ {\bfseries \MakeUppercase{\chaptername}} \par
+    \parindent\z@ {\bfseries \MakeTextUppercase{\chaptername}} \par
     \addvspace{\baselineskip}
     \@seenChaptertrue
   \fi
@@ -411,7 +412,7 @@
   \addvspace{2\baselineskip}
   \parindent\z@
   \@dottedtocline{0}{0.0em}{1.5em}{\bfseries
-    \MakeUppercase{\appendixname}: #1}{\bfseries #2}
+    \MakeTextUppercase{\appendixname}: #1}{\bfseries #2}
   }
 
 \newcommand{\l@BackMatter}[2]{
@@ -441,8 +442,8 @@
       \@restonecolfalse
     \fi
     \chapter{\listfigurename
-      \@mkboth{\MakeUppercase\listfigurename}%
-              {\MakeUppercase\listfigurename}}%
+      \@mkboth{\MakeTextUppercase\listfigurename}%
+              {\MakeTextUppercase\listfigurename}}%
     {\normalsize\parindent\z@\textbf{Figure \hfill Page}\par}%
     {\hyphenpenalty=\umthesis@listhyphenpenalty\@starttoc{lof}}%
     \if@restonecol\twocolumn\fi
@@ -465,7 +466,7 @@
     \fi
     \chapter{\listtablename
       \@mkboth{%
-          \MakeUppercase\listtablename}{\MakeUppercase\listtablename}}%
+          \MakeTextUppercase\listtablename}{\MakeTextUppercase\listtablename}}%
     {\normalsize\parindent\z@\textbf{Table \hfill Page}\par}%
     {\hyphenpenalty=\umthesis@listhyphenpenalty\@starttoc{lot}}%
     \if@restonecol\twocolumn\fi
@@ -501,29 +502,29 @@
 % Bachelor's degrees
 \newif\ifbachelorsone
 \bachelorsonefalse
-\def\bachelors#1#2{\gdef\@bachelors{#1, \uppercase{#2}}\bachelorsonetrue}
+\def\bachelors#1#2{\gdef\@bachelors{#1, \MakeTextUppercase{#2}}\bachelorsonetrue}
 \newif\ifbachelorstwo
 \bachelorstwofalse
-\def\secondbachelors#1#2{\gdef\@secondbachelors{#1, \uppercase{#2}}\bachelorstwotrue}
+\def\secondbachelors#1#2{\gdef\@secondbachelors{#1, \MakeTextUppercase{#2}}\bachelorstwotrue}
 \newif\ifbachelorsthree
 \bachelorsthreefalse
-\def\thirdbachelors#1#2{\gdef\@thirdbachelors{#1, \uppercase{#2}}\bachelorsthreetrue}
+\def\thirdbachelors#1#2{\gdef\@thirdbachelors{#1, \MakeTextUppercase{#2}}\bachelorsthreetrue}
 %
 % Master's degrees
 \newif\ifmastersone
 \mastersonefalse
-\def\masters#1#2{\gdef\@masters{#1, \uppercase{#2}}\mastersonetrue}
+\def\masters#1#2{\gdef\@masters{#1, \MakeTextUppercase{#2}}\mastersonetrue}
 \newif\ifmasterstwo
 \masterstwofalse
-\def\secondmasters#1#2{\gdef\@secondmasters{#1, \uppercase{#2}}\masterstwotrue}
+\def\secondmasters#1#2{\gdef\@secondmasters{#1, \MakeTextUppercase{#2}}\masterstwotrue}
 \newif\ifmastersthree
 \mastersthreefalse
-\def\thirdmasters#1#2{\gdef\@thirdmasters{#1, \uppercase{#2}}\mastersthreetrue}
+\def\thirdmasters#1#2{\gdef\@thirdmasters{#1, \MakeTextUppercase{#2}}\mastersthreetrue}
 %
 % Doctorates
 \newif\ifpriordoctorate
 \priordoctoratefalse
-\def\priordoctorate#1#2{\gdef\@priordoctorate{#1, \uppercase{#2}}\priordoctoratetrue}
+\def\priordoctorate#1#2{\gdef\@priordoctorate{#1, \MakeTextUppercase{#2}}\priordoctoratetrue}
 %
 % Chair(s)
 \newif\ifcochairs
@@ -712,7 +713,10 @@
   %
   \renewenvironment{thebibliography}[1]{%
     \begin{base@thebibliography}{#1}%
-      \addcontentsline{toc}{\toc@section}{\MakeUppercase{\bibname}}%
+      \addcontentsline{toc}{\toc@section}{\MakeTextUppercase{\bibname}}%
     }{\end{base@thebibliography}}}
 
 \newcommand{\doublespace}{\doublespacenormalsize}
+
+% silence hyperref warning about bookmark level
+\providecommand*{\toclevel@FrontMatter}{0}
