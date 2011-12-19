@@ -2,7 +2,7 @@
 %%
 %%  UMass Thesis Class
 %%
-%%    Based on merging a version from Jamie Callan/Carla Brodley 
+%%    Based on merging a version from Jamie Callan/Carla Brodley
 %%    with the Utah version that has also been floating around.
 %%
 %%      Makes adjustments to the basic REPORT document style
@@ -212,6 +212,47 @@
 
 \def\@makeonlyappendixhead#1{%
   { \def\thechapter{} \@makechapterhead{#1} } }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Part related stuff
+
+%% redefine @part to change toc entries
+\renewcommand*\l@part[2]{%
+  \ifnum \c@tocdepth >-2\relax
+    \addpenalty{-\@highpenalty}%
+    \addvspace{2.25em \@plus\p@}%
+    \setlength\@tempdima{3em}%
+    \begingroup
+      \parindent \z@ \rightskip \@pnumwidth
+      \parfillskip -\@pnumwidth
+      {\leavevmode
+       \hspace*{\fill}\centering\large\bfseries #1\hspace*{\fill}\llap{}}\par
+       \nobreak
+         \global\@nobreaktrue
+         \everypar{\global\@nobreakfalse\everypar{}}%
+    \endgroup
+  \fi}
+
+\def\@part[#1]#2{%
+    \ifnum \c@secnumdepth >-2\relax
+      \refstepcounter{part}%
+      \addcontentsline{toc}{part}{{\MakeUppercase{\partname\nobreakspace\thepart}}\hspace{1em}{\MakeUppercase{#1}}}%
+    \else
+      \centering{part}{#1}%
+    \fi
+    \markboth{}{}%
+    {\thispagestyle{empty}
+     \centering
+     \interlinepenalty \@M
+     \normalfont
+     \ifnum \c@secnumdepth >-2\relax
+       \huge\bfseries {\MakeUppercase{\partname}}\nobreakspace\thepart\nobreakspace{\MakeUppercase{#2}}
+       \par
+       \vskip 20\p@
+     \fi
+     }
+     %\Huge \bfseries {\MakeUppercase{#2}}\par}%
+    \@endpart}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Chapter/Appendix related stuff
