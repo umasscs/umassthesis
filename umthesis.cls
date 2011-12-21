@@ -225,8 +225,9 @@
     \begingroup
       \parindent \z@ \rightskip \@pnumwidth
       \parfillskip -\@pnumwidth
-      \centering
-      {\large\bfseries #1}\par
+      \leavevmode \hspace*{\fill}\par
+      \centering {\large\bfseries #1}\par
+      \leavevmode \hspace*{\fill} \par
        \nobreak
          \global\@nobreaktrue
          \everypar{\global\@nobreakfalse\everypar{}}%
