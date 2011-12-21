@@ -236,7 +236,7 @@
 \def\@part[#1]#2{%
     \ifnum \c@secnumdepth >-2\relax
       \refstepcounter{part}%
-      \addcontentsline{toc}{part}{{\MakeUppercase{\partname\nobreakspace\thepart}}\hspace{1em}{\MakeUppercase{#1}}}%
+      \addcontentsline{toc}{part}{{\MakeUppercase{\partname\nobreakspace\thepart}}:\hspace{1em}{\MakeUppercase{#1}}}%
     \else
       \centering{part}{#1}%
     \fi
@@ -246,7 +246,7 @@
      \interlinepenalty \@M
      \normalfont
      \ifnum \c@secnumdepth >-2\relax
-       \huge\bfseries {\MakeUppercase{\partname}}\nobreakspace\thepart\nobreakspace{\MakeUppercase{#2}}
+       \huge\bfseries {\MakeUppercase{\partname}}\nobreakspace\thepart:\nobreakspace{\MakeUppercase{#2}}
        \par
        \vskip 20\p@
      \fi
