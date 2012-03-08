@@ -89,6 +89,7 @@
 \newif\ifdouble@space
 \newif\ifcondensed@frontmatter
 \newif\ifnicer@draft
+\newif\if@proposal\@proposalfalse
 \newcommand{\@degree}{Doctor of Philosophy}
 \newcommand{\@degreeabbrv}{Ph.D.}
 
@@ -102,7 +103,7 @@
 \DeclareOption{doublespace}{\double@spacetrue}
 \DeclareOption{condensed}{\condensed@frontmattertrue\double@spacefalse}
 \DeclareOption{uncondensed}{\condensed@frontmatterfalse}
-\DeclareOption{proposal}{\def\umthesis@typename{A Dissertation Outline}}
+\DeclareOption{proposal}{\def\umthesis@typename{A Dissertation Outline}\@proposaltrue}
 \DeclareOption{dissertation}{\def\umthesis@typename{A Dissertation}}
 \DeclareOption{thesis}{\def\umthesis@typename{A Thesis}%
   \renewcommand{\@degree}{Master of Science}%

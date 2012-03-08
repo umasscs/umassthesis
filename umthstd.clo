@@ -148,7 +148,10 @@
     \ifmasterstwo\@secondmasters\par\fi
     \ifmastersthree\@thirdmasters\par\fi
     \ifpriordoctorate\@priordoctorate\par\fi
-    \@degreeabbrv, UNIVERSITY OF MASSACHUSETTS AMHERST \par
+    \if@proposal
+    \else
+      \@degreeabbrv, UNIVERSITY OF MASSACHUSETTS AMHERST \par
+    \fi
     \addvspace{\topskip}
     \ifcochairs
       Directed by: Professor \@firstchair\ and Professor \@secondchair \par
