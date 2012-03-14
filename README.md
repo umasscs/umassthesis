@@ -64,3 +64,8 @@ New environments:
 
 * `dedication` -- for the dedication
 * `abstract` -- for the abstract
+
+# You might also like
+
+[pdflatex-makefile](https://github.com/ransford/pdflatex-makefile), a succinct,
+revision-control-aware Makefile for pdflatex documents.
