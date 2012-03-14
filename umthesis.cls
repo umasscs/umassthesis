@@ -184,6 +184,7 @@
   \ifnum\value{count@Appendix}<2
     \let\@chapter\@onlyappendix
   \fi
+  \addtocontents{toc}{\protect\setcounter{tocdepth}{0}}%
   \setcounter{count@Appendix}{0}
   }
 
