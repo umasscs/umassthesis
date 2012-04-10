@@ -82,9 +82,11 @@
     \fi
     \rule{0.55\textwidth}{0.5pt} \par
     \@firstreader, Member \par
+    \ifsecond
     \vskip 0.35in
     \rule{0.55\textwidth}{0.5pt} \par
     \@secondreader, Member \par
+    \fi
     \ifthird
     \vskip 0.35in
     \rule{0.55\textwidth}{0.5pt} \par
