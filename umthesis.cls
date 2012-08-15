@@ -479,6 +479,7 @@
   \renewcommand{\listoffigures}{}
 \else
   \renewcommand{\listoffigures}{%
+    \setcounter{tocdepth}{3}
     \normalsize
     \if@twocolumn
       \@restonecoltrue\onecolumn
@@ -502,6 +503,7 @@
   \renewcommand{\listoftables}{}
 \else
   \renewcommand{\listoftables}{%
+    \setcounter{tocdepth}{3}
     \normalsize
     \if@twocolumn
       \@restonecoltrue\onecolumn
