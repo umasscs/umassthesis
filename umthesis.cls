@@ -126,6 +126,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \LoadClass[\@mysize]{report}[1996/01/02]
 \usepackage{textcase}
+\RequirePackage{etoolbox}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Post-package-loading fixups.
@@ -272,25 +273,47 @@
   \addcontentsline{toc}{\toc@section}{\MakeTextUppercase{\@tempc}}
 }
 
-%   %% redefine @chapter to change toc entries
-%   \def\@chapter[#1]#2{
-%     \ifnum \c@secnumdepth >\m@ne
-%       \refstepcounter{chapter}%
-%       \typeout{\@chapapp\space\thechapter.}%
-%       \addcontentsline{toc}{\toc@section}
-%                            {\protect\numberline{\thechapter.}\MakeTextUppercase{#1}}%
-%     \else
-%       \addcontentsline{toc}{\toc@section}{\MakeTextUppercase{#1}}%
-%     \fi
-%     \chaptermark{#1}%
-%     \if@twocolumn
-%       \@topnewpage[\@makechapterhead{#2}]%
-%     \else
-%       \@makechapterhead{#2}%
-%       \@afterheading
-%     \fi
-%     \stepcounter{count@\toc@section}
-%     }
+% Patch \@chapter to change TOC entries.  The original code appears to:
+%  (1) replace '\numberline{\thechapter}#1' with
+%      '\numberline{\thechapter.}\MakeTextUppercase{#1}'
+%  (2) replace '{toc}{chapter}{#1}' with
+%      '{toc}{\toc@section}{\MakeTextUppercase{#1}}'
+%  (3) replace '{toc}{chapter}' with '{toc}{\toc@section}'
+%  (4) append '\stepcounter{count@\toc@section}'
+
+% Disable uppercase when making PDF strings...this breaks hyperref
+\AtEndPreamble{%
+  \@ifpackageloaded{hyperref}%
+    {\pdfstringdefDisableCommands{%
+      \let\MakeTextUppercase\relax%
+      \let\uppercase\relax}%
+     \typeout{Disabled uppercase in PDF strings}}%
+    {\typeout{Did not detect hyperref package}}%
+  }
+
+% For debugging:
+%\tracingpatches
+%\ifpatchable*{\@chapter}{\typeout{Chapter can be patched}}%
+%  {\typeout{Chapter cannot be patched}}
+\patchcmd{\@chapter}%
+  {\numberline{\thechapter}#1}%
+  {\numberline{\thechapter.}\MakeTextUppercase{#1}}%
+  {\typeout{Patching chapter command 1 succeeded}}%
+  {\typeout{Patching chapter command 1 failed}}
+\patchcmd{\@chapter}%
+  {\addcontentsline{toc}{chapter}{#1}}%
+  {\addcontentsline{toc}{\toc@section}{\MakeTextUppercase{#1}}}%
+  {\typeout{Patching chapter command 2 succeeded}}%
+  {\typeout{Patching chapter command 2 failed}}
+\patchcmd{\@chapter}%
+  {\addcontentsline{toc}{chapter}}%
+  {\addcontentsline{toc}{\toc@section}}%
+  {\typeout{Patching chapter command 3 succeeded}}%
+  {\typeout{Patching chapter command 3 failed}}
+\apptocmd{\@chapter}%
+  {\stepcounter{count@\toc@section}}%
+  {\typeout{Appending to chapter command succeeded}}%
+  {\typeout{Appending to chapter command failed}}
 
 \newif\ifrenew@chapter
 \ifdouble@space%
