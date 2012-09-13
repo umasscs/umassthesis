@@ -129,6 +129,12 @@
   }
   {\par\vfill\vfil\null}
 
+\newenvironment{frontispiece}{
+  \clearpage\null\vfil
+  \thispagestyle{empty}
+  }
+  {\par\vfill\vfil\null}
+
 \renewenvironment{abstract}{
   \clearpage
   \pagestyle{plain}

@@ -73,6 +73,10 @@
     {\vspace{6ex}\textbf{DEDICATION}\par}
     {\par}
 
+\newenvironment{frontispiece}
+  {\vspace{6ex}}
+  {\par}
+
 \renewenvironment{abstract}{
   \vspace{6ex}
   \begin{center}
