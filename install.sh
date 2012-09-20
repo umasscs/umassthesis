@@ -2,17 +2,15 @@
 
 NAME=umthesis
 WHEREAMI=`cd $(dirname $0) && pwd -P`
-echo $WHEREAMI
-# exit 0
 
-if [ -z "$(tex --version | head -1 | grep MacPorts)" ]; then
-	echo "This installation scripts works only with"
-	echo "MacPorts-installed TeXLive."
-	exit 1
+TEXVAR=${TEXMFVAR:-$(texconfig conf | grep TEXMFVAR | sed -e 's,.*=,,')}
+if [ -n "$TEXVAR" ]; then
+	echo "Will put symlinks in $TEXVAR (autodetected)"
+else
+	TEXVAR="$HOME/.texlive$(date '+%Y')/texmf-var"
+	echo "WARNING: Could not autodetect \$TEXMFVAR; will put symlinks in default directory $TEXVAR" 1>&2
 fi
 
-YEAR="$(date '+%Y')"
-TEXVAR="$HOME/.texlive${YEAR}/texmf-var"
 LATEXDIR="$TEXVAR/tex/latex/$NAME"
 BSTDIR="$TEXVAR/bibtex/bst/$NAME"
 
