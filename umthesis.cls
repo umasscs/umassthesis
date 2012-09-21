@@ -797,3 +797,4 @@
 
 % silence hyperref warning about bookmark level
 \providecommand*{\toclevel@FrontMatter}{0}
+\providecommand*{\toclevel@Chapter}{0}
