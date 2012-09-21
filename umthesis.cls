@@ -783,7 +783,15 @@
   \renewenvironment{thebibliography}[1]{%
     \begin{base@thebibliography}{#1}%
       \addcontentsline{toc}{\toc@section}{\MakeTextUppercase{\bibname}}%
-    }{\end{base@thebibliography}}}
+    }{\end{base@thebibliography}}%
+  %
+  % Double-space the bibliography entries, according to an interpretation
+  % of the discussion at
+  % http://tex.stackexchange.com/questions/13742/what-does-double-spacing-mean
+  \@ifpackageloaded{biblatex}{%
+    \setlength{\bibitemsep}{2\baselineskip}%
+  }{}%
+}
 
 \newcommand{\doublespace}{\doublespacenormalsize}
 
