@@ -10,7 +10,7 @@
     \vskip 60\p@                  % To adjust centering.
     \begin{center}%
       \large
-      \textbf{\uppercase\expandafter{\@title}} \par
+      \textbf{\MakeTextUppercase{\@title}} \par
       \vfill                      % Vertical space after title.
       \doublespacenormalsize
       \umthesis@typename\ Presented \par
@@ -56,7 +56,7 @@
   \vfil
   \begin{center}
     \large
-    \textbf{\uppercase\expandafter{\@title}} \par
+    \textbf{\MakeTextUppercase{\@title}} \par
     \vfill
     \doublespacenormalsize
     \umthesis@typename\ Presented \par
@@ -141,7 +141,7 @@
   \chapter{\uppercase\expandafter{\abstractname}}
   \begin{center}
     \large
-    \textbf{\uppercase\expandafter{\@title}} \par
+    \textbf{\MakeTextUppercase{\@title}} \par
     \addvspace{\topskip}
     \doublespacenormalsize
     \uppercase\expandafter{\@date} \par
