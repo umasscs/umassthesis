@@ -49,7 +49,7 @@ upon which it is based:
 * `\fourthreader{name}`
 * `\fifthreader{name}`
 * `\sixthreader{name}`
-* `\departmentchair{name}`
+* `\departmentchair{name}` -- to use a different title than `Department Chair`, use `\departmentchair[title]{name}`.
 * `\departmentname{name}`
 * `\copyrightpage` -- produces the copyright page
 * `\signaturepage` -- produces the signature page
