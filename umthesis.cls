@@ -80,7 +80,7 @@
 %% Identification part
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{umthesis}[2003/10/16 20:20:51 1.25
+\ProvidesClass{umthesis}[2014/04/16 v1.26
                          U.Mass. dissertation class]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
