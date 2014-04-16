@@ -768,11 +768,9 @@
   \setlength{\skip\footins}{2\umthesis@baseskipfootins}
 \fi
 
-\let\base@footnotetext\@footnotetext
-\long\def\@footnotetext{%
-  \renewcommand{\baselinestretch}{1}%
-  \base@footnotetext%
-}
+\pretocmd{\@footnotetext}{\linespread{1}\selectfont}%
+  {\typeout{Patching footnotetext succeeded}}%
+  {\typeout{Patching footnotetext failed}}
 
 %%
 %% Fix the bibliography
