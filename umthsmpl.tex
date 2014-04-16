@@ -97,9 +97,10 @@
 %% \setlength{\tablenumberwidth}{2.3em}
 
 %% Use the hyperref package if you're producing a version for online
-%% distribution and you want hyperlinks.  Probably the version you submit to
-%% UMass should not use hyperref.
-%\usepackage{hyperref}
+%% distribution and you want hyperlinks.  Note that the Grad School doesn't want
+%% their PDF viewers to colorize or otherwise highlight the links; use the
+%% hidelinks option to hyperref to avoid decorating links.
+%\usepackage[hidelinks]{hyperref}
 
 %% One way of formatting the epigraph/frontispiece is to use this package.
 %\usepackage{epigraph}
@@ -126,7 +127,8 @@
 \fourthreader{Mary Lamb}   % Optional
 %\fifthreader{}            % Optional
 %\sixthreader{}            % Optional
-\departmentchair{Pete Shearer}
+\departmentchair{Pete Shearer} % Uses "Department Chair" as the title. To
+% use an alternate title, such as "Chair", use \departmentchair[Chair]{Pete Shearer}
 \departmentname{Sheep Studies}
 
 %% If your degree is something other than a Ph.D. (for a dissertation), or
@@ -445,7 +447,24 @@ baah, baah.  Baah, baah, baah.
 
 \section{The antidisestablishmentarainism supercalifragilisticexpialidocious longlonglonglonglongword}
 
-Some text for this section.
+A \texttt{quotation}:
+
+\begin{quotation}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut nibh orci, molestie
+non vehicula ac, ultricies quis purus. Nunc euismod metus vel nulla sodales quis
+tempus nisi varius. Sed ornare pulvinar bibendum. Ut egestas mollis nisi vel
+cursus.
+\end{quotation}
+
+\dots and a \texttt{quote}:
+
+\begin{quote}
+Ut dolor libero, blandit tristique accumsan non, viverra a magna. Sed pretium
+sollicitudin neque, sit amet ornare lorem convallis ac. Fusce mollis gravida
+aliquam. Nullam vulputate turpis vitae orci porttitor auctor. Donec in auctor
+erat.
+\end{quote}
+
 
 
 %% End of body
@@ -466,6 +485,7 @@ Some text for this section.
 
 %%
 %% A bibliography is required.
+\interlinepenalty=10000  % prevent split bibliography entries
 \bibliographystyle{umthesis}
 \bibliography{umthsmpl}
 \end{document}

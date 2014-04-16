@@ -750,9 +750,8 @@
   \item[]%
   }%
 {\endlist}
-\renewenvironment{quote}{\list{}{\rightmargin\leftmargin}\item[]}
-                        {\endlist}
-
+% alias quote to quotation
+\renewenvironment{quote}{\begin{quotation}}{\end{quotation}}
 
 %%
 %% Fix footnotes -- double spacing between footnotes, single spacing within
