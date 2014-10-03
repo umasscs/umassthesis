@@ -1,4 +1,5 @@
 #!/bin/sh
+set -e
 
 NAME=umthesis
 WHEREAMI=`cd $(dirname $0) && pwd -P`
@@ -16,7 +17,7 @@ BSTDIR="$TEXVAR/bibtex/bst/$NAME"
 
 mkdir -p "$LATEXDIR" "$BSTDIR"
 
-cd "$BSTDIR" && ln -s "$WHEREAMI"/*.bst .
-cd "$LATEXDIR" && ln -s "$WHEREAMI"/*.cls "$WHEREAMI"/*.clo .
+cd "$BSTDIR" && ln -fs "$WHEREAMI"/*.bst .
+cd "$LATEXDIR" && ln -fs "$WHEREAMI"/*.cls "$WHEREAMI"/*.clo .
 
 cd "$TEXVAR" && mktexlsr .
