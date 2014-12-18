@@ -788,7 +788,7 @@
   % of the discussion at
   % http://tex.stackexchange.com/questions/13742/what-does-double-spacing-mean
   \@ifpackageloaded{biblatex}{%
-    \setlength{\bibitemsep}{2\baselineskip}%
+    \setlength{\bibitemsep}{\baselineskip}%
   }{}%
 }
 
