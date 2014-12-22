@@ -779,17 +779,22 @@
   \let\base@thebibliography\thebibliography%
   \let\endbase@thebibliography\endthebibliography%
   %
-  \renewenvironment{thebibliography}[1]{%
-    \begin{base@thebibliography}{#1}%
-      \addcontentsline{toc}{\toc@section}{\MakeTextUppercase{\bibname}}%
-    }{\end{base@thebibliography}}%
-  %
-  % Double-space the bibliography entries, according to an interpretation
-  % of the discussion at
-  % http://tex.stackexchange.com/questions/13742/what-does-double-spacing-mean
   \@ifpackageloaded{biblatex}{%
+    % Double-space the bibliography entries, according to an interpretation
+    % of the discussion at
+    % http://tex.stackexchange.com/questions/13742/what-does-double-spacing-mean
     \setlength{\bibitemsep}{\baselineskip}%
-  }{}%
+    % Add entry to TOC
+    \AtBeginBibliography{%
+      \addcontentsline{toc}{\toc@section}{\MakeTextUppercase{\bibname}}%
+    }%
+  }{%
+    % Add entry to TOC
+    \renewenvironment{thebibliography}[1]{%
+      \begin{base@thebibliography}{#1}%
+        \addcontentsline{toc}{\toc@section}{\MakeTextUppercase{\bibname}}%
+      }{\end{base@thebibliography}}%
+  }%
 }
 
 \newcommand{\doublespace}{\doublespacenormalsize}
