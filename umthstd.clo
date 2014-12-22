@@ -124,12 +124,16 @@
 %%
 
 \newenvironment{dedication}{
+  \chapter*{DEDICATION}
+  \thispagestyle{empty}
+  }
+  {\par\vfill\vfil\null}
+
+\newenvironment{frontispiece}{
   \clearpage\null\vfil
   \thispagestyle{empty}
-  \vfill
-  \begin{quotation}
   }
-  {\par\end{quotation}\vfill\vfil\null}
+  {\par\vfill\vfil\null}
 
 \renewenvironment{abstract}{
   \clearpage
