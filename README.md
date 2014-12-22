@@ -64,6 +64,7 @@ New environments:
 
 * `dedication` -- for the dedication
 * `abstract` -- for the abstract
+* `frontispiece` -- for a decorative [frontispiece](http://en.wikipedia.org/wiki/Book_frontispiece)
 
 # You might also like
 
