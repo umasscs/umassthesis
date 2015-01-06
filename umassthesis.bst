@@ -5,6 +5,7 @@
 %    History
 %     Jul 92   (Corbett) Copied ACM bst file and removed \sc from names
 %     Aug 97   (Ridgway) Renamed umthesis.bst
+%     Jan 15   (Carey) Renamed umassthesis.bst
 
 ENTRY
   { address

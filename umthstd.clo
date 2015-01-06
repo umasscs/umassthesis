@@ -13,7 +13,7 @@
       \textbf{\uppercase\expandafter{\@title}} \par
       \vfill                      % Vertical space after title.
       \doublespacenormalsize
-      \umthesis@typename\ Presented \par
+      \umassthesis@typename\ Presented \par
       by \par
       \uppercase\expandafter{\@author}
       \vfill
@@ -59,7 +59,7 @@
     \textbf{\uppercase\expandafter{\@title}} \par
     \vfill
     \doublespacenormalsize
-    \umthesis@typename\ Presented \par
+    \umassthesis@typename\ Presented \par
     by \par
     \uppercase\expandafter{\@author} \par
   \end{center}
@@ -114,7 +114,7 @@
   \begin{flushright}
     \normalsize
     \rule{0.55\textwidth}{0.5pt} \par
-    \parbox[t]{\lenguide}{\@departmentchair, \umthesis@chairtitle \par
+    \parbox[t]{\lenguide}{\@departmentchair, \umassthesis@chairtitle \par
       \@departmentname}
   \end{flushright}
   }
