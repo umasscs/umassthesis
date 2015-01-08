@@ -1,7 +1,7 @@
 #!/bin/sh
 set -e
 
-NAME=umthesis
+NAME=umassthesis
 WHEREAMI=`cd $(dirname $0) && pwd -P`
 
 TEXVAR=${TEXMFVAR:-$(texconfig conf | grep TEXMFVAR | sed -e 's,.*=,,')}
