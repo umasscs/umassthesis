@@ -1,0 +1,3558 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass umassthesis
+\begin_preamble
+%% 
+%% This is a sample doctoral dissertation.  It shows the appropriate
+%% structure for your dissertation.  It should handle most of the
+%% strange requirements imposed by the Grad school; like the different
+%% handling of titles of one/many appendices.  It will automatically
+%% handle the linespacing changes.  The body default is double-spaced
+%% (except when you use the singlespace or condensed options).  The
+%% default for quotations is single-space, and the default for tabular
+%% environments is also single-space.  
+%%
+%% This class adds the following commands and environments to the
+%% report class, upon which it is based:
+%% Commands
+%% ------------
+%% \degree{name}{abbrv} -- Sets the name and abbreviation for the degree.
+%%                         These default to ``Doctor of Philosopy''
+%%                         and ``Ph.D.'', respectively.
+%% \copyrightyear{year} -- for the copyright page.
+%% \bachelors{degree}{institution} -- for the abstract
+%% \masters{degree}{institution}   --  "
+%%     if you have other degrees you may use
+%% \secondbachelors{degree}{institution}
+%% \thirdbachelors{degree}{institution}
+%% \secondmasters{degree}{institution}
+%% \thirdmasters{degree}{institution}
+%% \priordoctorate{degree}{institution}
+%%
+%% \committeechair{name}           -- for the signature page
+%% or, if you have two co-chairs:
+%% \cochairs{first name}{second name}
+%%
+%% \firstreader{name}              --  "
+%% \secondreader{name}             --  "
+%% \thirdreader{name}              -- (optional)
+%% \fourthreader{name}             --  "
+%% \fifthreader{name}              --  "
+%% \sixthreader{name}              --  "
+%% \departmentchair{name}          -- for the signature page
+%% \departmentname{name}           --  "
+%%
+%% \copyrightpage                  -- produces the copyright page
+%% \signaturepage                  -- produces the signature page
+%%
+%% \frontmatter                    -- these are required in their various
+%% \mainmatter                     -- appropriate locations
+%% \backmatter                     --
+%%
+%% \unnumberedchapter[toc]{name}   -- like \chapter, except that it
+%%                                    produces an unnumbered chapter;
+%%                                    alternatively, like \chapter*,
+%%                                    except that it lists the chapter
+%%                                    in the table of contents.
+%%
+%% New environments:
+%%   dedication  -- for the dedication
+%%   abstract    -- for the abstract
+%%
+%% The thesis documentclass is built on top of the report document class.
+%% It accepts all of the options that the report class accepts, plus the
+%% following:
+%%     doublespace -- the default, indicates double spacing as per U.Mass.
+%%                    requirements.  You will need this when you do your
+%%                    final copy.
+%%     singlespace -- for earlier work, not acceptable to the Grad school
+%%     condensed   -- for earlier work, not acceptable to the Grad school,
+%%                    creates condensed versions of the frontmatter. 
+%%                    Condensed implies singlespace.
+%%     dissertation - the default, indicates that this document is a
+%%                    dissertation.
+%%     proposal    -- indicates that this document is a dissertation proposal,
+%%                    rather than a dissertation.  This will only change the
+%%                    wording on the title and signature pages.
+%%     thesis      -- indicates that this document is a Master's thesis 
+%%                    rather than a doctoral dissertation.  This also changes
+%%                    the default for \degree to Master of Science, M.S.
+%%     allowlisthypenation -- (the default), allows hyphenation of words in
+%%                    the table of contents, the list of figures, and the list
+%%                    of tables.  I believe that this is acceptable to the 
+%%                    Graduate School.
+%%     nolisthyphenation -- disallows hyphenation of words in the table of
+%%                    contents and the list of figures and tables.  Use this 
+%%                    option if the Grad School doesn't like your hyphenation.
+%%     nicerdraft  -- relaxes some of the Grad School's rules for working with
+%%                    drafts -- has no effect when doublespace is in effect
+%%     nonicerdraft -- the default, leaves things in draft as they will be in
+%%                     the final version
+%% umassthesis changes the default font size to 12pt, but you may specify 10pt or
+%%   11pt in the options.
+% for Ph.D. dissertation or proposal
+% \documentclass[thesis]{umassthesis}  % for Master's thesis
+
+%%
+%% If you have enough figures or tables that you run out of space for their
+%% numbers in the List of Tables or List of figures, you can use the following
+%% command to adjust the space left for numbers.  The default is shown:
+%%
+%% \setlength{\tablenumberwidth}{2.3em}
+
+%% Use the hyperref package if you're producing a version for online
+%% distribution and you want hyperlinks.  Note that the Grad School doesn't want
+%% their PDF viewers to colorize or otherwise highlight the links; use the
+%% hidelinks option to hyperref to avoid decorating links.
+%\usepackage[hidelinks]{hyperref}
+
+%% One way of formatting the epigraph/frontispiece is to use this package.
+%\usepackage{epigraph}
+\end_preamble
+\use_default_options false
+\maintain_unincluded_children false
+\language english
+\language_package none
+\inputencoding auto
+\fontencoding default
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 0
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 0
+\use_package mhchem 0
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+On the predilection of sheep for grass
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+protect
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+A really long title
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+protect
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+with multiple lines
+\end_layout
+
+\begin_layout Author
+I.
+ M.
+ Woolly
+\end_layout
+
+\begin_layout Date
+February 1995
+\end_layout
+
+\begin_layout ExtraFrontMatter
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+copyrightyear
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+1995
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+The date you'll actually graduate -- must be February, May, or September
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout ExtraFrontMatter
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+bachelors
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+B.Sc.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+University of Woolloomooloo
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout ExtraFrontMatter
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+masters
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+M.Sc.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+University of Back of Bourke
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout ExtraFrontMatter
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+secondmasters
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+M.Ed.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+Antioch College
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout ExtraFrontMatter
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+priordoctorate
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+M.D.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+University of Never-never-land
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout ExtraFrontMatter
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+committeechair{B.
+ B.
+ Bahh}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout ExtraFrontMatter
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+cochairs
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+B.
+ B.
+ Bahh
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+I.
+ M.
+ A.
+ Wolf
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout ExtraFrontMatter
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+firstreader
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+Little Bo Peep
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout ExtraFrontMatter
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+secondreader
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+R.
+ U.
+ Sheepish
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout ExtraFrontMatter
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+thirdreader
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+Bill Shepherd
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout ExtraFrontMatter
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+fourthreader
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+Mary Lamb
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout ExtraFrontMatter
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+departmentchair
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+Pete Shearer
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Uses "Department Chair" as the title.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout ExtraFrontMatter
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+To use an alternate title, such as "Chair", use 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+departmentchair[chair]
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+Pete Shearer
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout ExtraFrontMatter
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+departmentname
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+Sheep Studies
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout ExtraFrontMatter
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+If your degree is something other than a Ph.D.
+ (for a dissertation), or an M.S.
+ (for a thesis), you will need to uncomment the appropriate following line:
+\end_layout
+
+\begin_layout ExtraFrontMatter
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+degree{Doctor of Education}{Ed.D.}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout ExtraFrontMatter
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+degree{Doctor of Philosophy}{Ph.D.}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout ExtraFrontMatter
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+degree{Master of Arts}{M.A.}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout ExtraFrontMatter
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+degree{Master of Arts in Teaching}{M.A.T.}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout ExtraFrontMatter
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+degree{Master of Business Administration}{M.B.A.}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout ExtraFrontMatter
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+degree{Master of Education}{M.Ed.}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout ExtraFrontMatter
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+degree{Master of Fine Arts}{M.F.A.}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout ExtraFrontMatter
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+degree{Master of Landscape Architecture}{M.L.A.}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout ExtraFrontMatter
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+degree{Master of Music}{M.M.}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout ExtraFrontMatter
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+degree{Master of Public Administration}{M.P.A.}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout ExtraFrontMatter
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+degree{Master of Public Health}{M.P.H.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout ExtraFrontMatter
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+degree{Master of Regional Planning}{M.R.P.}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout ExtraFrontMatter
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+degree{Master of Science}{M.S.}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout ExtraFrontMatter
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+degree{Master of Science in Accounting}{M.S.
+ Acctg.}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout ExtraFrontMatter
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+degree{Master of Science in Chemical Engineering}{M.S.
+ Ch.E.}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout ExtraFrontMatter
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+degree{Master of Science in Civil Engineering}{M.S.C.E.}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout ExtraFrontMatter
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+degree{Master of Science in Electrical and Computer Engineering}{M.S.E.C.E.}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout ExtraFrontMatter
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+degree{Master of Science in Engineering Management}{M.S.
+ Eng.
+ Mgt.}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout ExtraFrontMatter
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+degree{Master of Science in Environmental Engineering}{M.S.
+ Env.
+ E.}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout ExtraFrontMatter
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+degree{Master of Science in Industrial Engineering and Operations Research}{M.S.I.E.
+O.R.}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout ExtraFrontMatter
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+degree{Master of Science in Manufacturing Engineering}{M.S.
+ Mfg.
+ Eng.}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout ExtraFrontMatter
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+degree{Master of Science in Mechanical Engineering}{M.S.M.E.}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout ExtraFrontMatter
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+degree{Professional Master of Business Administration}{P.M.B.A.}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout ExtraFrontMatter
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+degree{Doctor of Philosophy}{Ph.D.}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout ExtraFrontMatter
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+frontmatter
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+These lines produce the title, copyright, and signature pages.
+\end_layout
+
+\begin_layout Plain Layout
+They are Mandatory; except that you could leave out the copyright page if
+ you were preparing an M.S.
+ thesis instead of a PhD dissertation.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout CopyrightPage
+
+\end_layout
+
+\begin_layout SignaturePage
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Dedication is optional -- but this is how you create it:
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{dedication}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+
+\emph on
+To those little lost sheep.
+
+\emph default
+ 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{dedication}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Epigraph (aka frontispiece) is also optional, but this is one way you can
+ create it:
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%
+\backslash
+begin{frontispiece}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+blah blah blah...
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%
+\backslash
+end{frontispiece}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Acknowledgments
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Acknowledgements are optional...yeah, right.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Thanks to all those fine shepherds.
+ Not to mention all the great border collies and suchlike fine animals.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Abstract is MANDATORY.
+ -- Except for MS theses
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Abstract
+Sheep like grass.
+ Why? Let me tell you.
+ Sheep are ruminants, like cattle, deer, and horses.
+ They have stomachs that are specialized...
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Preface goes here...would be just like Acknowledgements -- optional
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Table of contents is mandatory, lists of tables and figures are mandatory
+ if you have any tables or figures; must be in this order.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\begin_inset FloatList table
+
+\end_inset
+
+
+\begin_inset FloatList figure
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+mainmatter
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+<-- This line is mandatory
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+If you want an introduction, which is not a numbered chapter, insert the
+ following two lines.
+  This is OPTIONAL:
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+unnumberedchapter
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+Introduction
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Why on earth do I want to study sheep anyway?
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+An Introduction to Sheep
+\end_layout
+
+\begin_layout Standard
+Is there life after sheep?
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "xyz"
+
+\end_inset
+
+ Yes, I say there is.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%
+\backslash
+marginpar{Really?}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Pulling the wool over your eyes
+\end_layout
+
+\begin_layout Standard
+Sheep are fabulous creatures.
+ The noises they make are truly stupendous 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Bah"
+
+\end_inset
+
+.
+ We also want to refer to figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:circle"
+
+\end_inset
+
+ here.
+ Here's some verbatim text to screw us up:
+\end_layout
+
+\begin_layout Verbatim
+xxx := y;
+\end_layout
+
+\begin_layout Verbatim
+xy := x;
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{picture}
+\end_layout
+
+\end_inset
+
+(300,200) 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+put
+\end_layout
+
+\end_inset
+
+(150,100)
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+circle
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+150
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+put
+\end_layout
+
+\end_inset
+
+(1,1)
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+framebox(298,198){
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{picture}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+A circle in a square.
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:circle"
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+All about sheep noises
+\end_layout
+
+\begin_layout Standard
+Lots of text here just to fill up some space so we can be sure that we really
+ are double-spacing and doing all the other things that might be necessary
+ in formatting a dissertation to U.Mass.
+ guidelines.
+ We're also going to have another figure here, figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:disc"
+
+\end_inset
+
+, just for fun, and to make sure that the list of figures is formatted correctly.
+ Now it's time for table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "table:somenumbers"
+
+\end_inset
+
+.
+ We really are going to need a third figure, figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:discs"
+
+\end_inset
+
+, two more tables, table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "table:morenumbers"
+
+\end_inset
+
+ and table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "table:evenmorenumbers"
+
+\end_inset
+
+ and a fourth figure, figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:circleanddisc"
+
+\end_inset
+
+, just to really make sure.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{picture}
+\end_layout
+
+\end_inset
+
+(300,200) 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+put
+\end_layout
+
+\end_inset
+
+(150,100)
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+circle*
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+150
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+put
+\end_layout
+
+\end_inset
+
+(1,1)
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+framebox(298,198){
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{picture}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+A disc in a square.
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:disc"
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement htbp
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Some numbers.
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "table:somenumbers"
+
+\end_inset
+
+ 
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="4">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="right" valignment="top">
+<column alignment="left" valignment="top">
+<column alignment="left" valignment="top">
+<column alignment="left" valignment="top">
+<row>
+<cell alignment="right" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Minimum 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Average 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Maximum 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="right" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Type of Animal 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Observed 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Observed 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Observed 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="right" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Cats 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+12 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+20 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+24 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="right" valignment="top" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Dogs 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+20 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+20 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+20 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{picture}
+\end_layout
+
+\end_inset
+
+(400,200) 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+put
+\end_layout
+
+\end_inset
+
+(100,100)
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+circle*
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+150
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+put
+\end_layout
+
+\end_inset
+
+(300,100)
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+circle*
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+150
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+put
+\end_layout
+
+\end_inset
+
+(1,1)
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+framebox(398,198){
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{picture}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Two discs in a rectangle.
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:discs"
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement htbp
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+More numbers.
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "table:morenumbers"
+
+\end_inset
+
+ 
+\begin_inset Tabular
+<lyxtabular version="3" rows="3" columns="4">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="right" valignment="top">
+<column alignment="left" valignment="top">
+<column alignment="left" valignment="top">
+<column alignment="left" valignment="top">
+<row>
+<cell alignment="right" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Type of Animal 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Arms 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Legs 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Ears 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="right" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Person 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="right" valignment="top" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Dog 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement htbp
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Even more numbers; together with a caption long enough to ensure that multi-line
+ caption formatting works correctly.
+\end_layout
+
+\end_inset
+
+Even more numbers; together with a caption long enough to ensure that multi-line
+ caption formatting works correctly.
+ If you want a shorter caption to appear in the Table of Figures you're
+ going to have to put the shorter caption in the 
+\family typewriter
+[]
+\family default
+ as shown in this example.
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "table:evenmorenumbers"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="3" columns="4">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="right" valignment="top">
+<column alignment="left" valignment="top">
+<column alignment="left" valignment="top">
+<column alignment="left" valignment="top">
+<row>
+<cell alignment="right" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+x 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="right" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+y 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="right" valignment="top" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+z 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{picture}
+\end_layout
+
+\end_inset
+
+(400,200) 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+put
+\end_layout
+
+\end_inset
+
+(100,100)
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+circle
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+150
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+put
+\end_layout
+
+\end_inset
+
+(300,100)
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+circle*
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+150
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+put
+\end_layout
+
+\end_inset
+
+(1,1)
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+framebox(398,198){
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{picture}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+A circle and a disc in a square.
+ We want this caption to be very long to ensure that the formatting of very
+ long captions is handled correctly.
+ The case of short captions has already been dealt with.
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:circleanddisc"
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Baahs
+\end_layout
+
+\begin_layout Subsection
+Even more about sheep noises
+\end_layout
+
+\begin_layout Subsection
+And yet more about sheep noises
+\end_layout
+
+\begin_layout Section
+What about wolves?
+\end_layout
+
+\begin_layout Standard
+What about wolves?
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+To be fair, some wolves are probably nice\SpecialChar \ldots{}
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+What about shepherds?
+\end_layout
+
+\begin_layout Standard
+What about shepherds? I don't really know, but I want some text here to
+ fill things in so that I can verify that everything is OK.
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Some shepherds are good, some are bad.
+ The reader is referred to Mary and The Boy Who Cried Wolf for further insight
+ into this much-debated issue.
+ (This needs to be a very long footnote so we can test the spacing between
+ lines on a footnote.)
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Subsection
+A subsection
+\end_layout
+
+\begin_layout Standard
+This is a subsection of the subsection about shepherds.
+ 
+\end_layout
+
+\begin_layout Subsection
+Another subsection
+\end_layout
+
+\begin_layout Standard
+This is another subsection of that section.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+A subsubsection
+\end_layout
+
+\begin_layout Standard
+This is a subsubsection of that subsection that will in turn havae a paragraph
+ with a pair of subparagraphs.
+ I am aware that I shouldn't have only one subsubsection in the subsection...
+ 
+\end_layout
+
+\begin_layout Paragraph
+A Paragraph
+\end_layout
+
+\begin_layout Standard
+This is the text associated with this paragraph.
+ I really want enough text to make it look like a paragraph.
+ Baah, baah, baah.
+ Baah, baah, baah.
+ Baah, baah, baah.
+ Baah, baah, baah.
+ Baah, baah, baah.
+ Baah, baah, baah.
+ Baah, baah, baah.
+ Baah, baah, baah.
+ Baah, baah, baah.
+ 
+\end_layout
+
+\begin_layout Subparagraph
+A Subparagraph
+\end_layout
+
+\begin_layout Standard
+This is the text associated with this subparagraph.
+ Baah, baah, baah.
+ Baah, baah, baah.
+ Baah, baah, baah.
+ Baah, baah, baah.
+ Baah, baah, baah.
+ Baah, baah, baah.
+ Baah, baah, baah.
+ Baah, baah, baah.
+ 
+\end_layout
+
+\begin_layout Subparagraph
+Another Subparagraph
+\end_layout
+
+\begin_layout Standard
+Better not have subparagraphs without text in them.
+ Baah, baah, baah.
+ Baah, baah, baah.
+ Baah, baah, baah.
+ Baah, baah, baah.
+ Baah, baah, baah.
+ Baah, baah, baah.
+ Baah, baah, baah.
+ 
+\end_layout
+
+\begin_layout Paragraph
+Another Paragraph
+\end_layout
+
+\begin_layout Standard
+Baah, baah, baah.
+ Baah, baah, baah.
+ Baah, baah, baah.
+ Baah, baah, baah.
+ Baah, baah, baah.
+ Baah, baah, baah.
+ Baah, baah, baah.
+ Baah, baah, baah.
+ Baah, baah, baah.
+ Baah, baah, baah.
+ Baah, baah, baah.
+ Baah, baah, baah.
+ Baah, baah, baah.
+ Baah, baah, baah.
+ Baah, baah, baah.
+ Baah, baah, baah.
+ Baah, baah, baah.
+ Baah, baah, baah.
+ Baah, baah, baah.
+ Baah, baah, baah.
+ Baah, baah, baah.
+\end_layout
+
+\begin_layout Standard
+Baah, baah, baah.
+ Baah, baah, baah.
+ Baah, baah, baah.
+ Baah, baah, baah.
+ Baah, baah, baah.
+ Baah, baah, baah.
+ Baah, baah, baah.
+ Baah, baah, baah.
+ Baah, baah, baah.
+ Baah, baah, baah.
+ Baah, baah, baah.
+ Baah, baah, baah.
+ Baah, baah, baah.
+ Baah, baah, baah.
+ Baah, baah, baah.
+ Baah, baah, baah.
+ Baah, baah, baah.
+ Baah, baah, baah.
+ Baah, baah, baah.
+ Baah, baah, baah.
+ Baah, baah, baah.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+Another Subsubsection
+\end_layout
+
+\begin_layout Standard
+With some text.
+ Baah, baah, baah.
+ Baah, baah, baah.
+ Baah, baah, baah.
+ Baah, baah, baah.
+ Baah, baah, baah.
+ Baah, baah, baah.
+ Baah, baah, baah.
+ Baah, baah, baah.
+ Baah, baah, baah.
+ Baah, baah, baah.
+\end_layout
+
+\begin_layout Chapter
+Sheep and Grass
+\end_layout
+
+\begin_layout Section
+Introduction
+\end_layout
+
+\begin_layout Standard
+Grass is a wonderful food...
+ Baah, baah, baah.
+ Baah, baah, baah.
+ Baah, baah, baah.
+ Baah, baah, baah.
+ Baah, baah, baah.
+ Baah, baah, baah.
+ Baah, baah, baah.
+ Baah, baah, baah.
+ Baah, baah, baah.
+ Baah, baah, baah.
+ Baah, baah, baah.
+ Baah, baah, baah.
+ Baah, baah, baah.
+ Baah, baah, baah.
+ Baah, baah, baah.
+ Baah, baah, baah.
+ Baah, baah, baah.
+ Baah, baah, baah.
+ Baah, baah, baah.
+ Baah, baah, baah.
+ Baah, baah, baah.
+ Baah, baah, baah.
+ Baah, baah, baah.
+ Baah, baah, baah.
+ Baah, baah, baah.
+ Baah, baah, baah.
+ Baah, baah, baah.
+\end_layout
+
+\begin_layout Chapter
+A Wonderfully Long Chapter Title That Is This Long In Order to Test the
+ Chapter Heading Stuff
+\end_layout
+
+\begin_layout Standard
+Note that we shouldn't really have a chapter heading with no body, so here
+ is a body for this chapter.
+ Baah, baah, baah.
+ Baah, baah, baah.
+ Baah, baah, baah.
+ Baah, baah, baah.
+ Baah, baah, baah.
+ Baah, baah, baah.
+ Baah, baah, baah.
+ Baah, baah, baah.
+ Baah, baah, baah.
+ Baah, baah, baah.
+ Baah, baah, baah.
+ Baah, baah, baah.
+ Baah, baah, baah.
+ Baah, baah, baah.
+ Baah, baah, baah.
+ Baah, baah, baah.
+ Baah, baah, baah.
+ Baah, baah, baah.
+ Baah, baah, baah.
+ Baah, baah, baah.
+ Baah, baah, baah.
+ Baah, baah, baah.
+\end_layout
+
+\begin_layout Section
+The antidisestablishmentarainism supercalifragilisticexpialidocious longlonglong
+longlongword
+\end_layout
+
+\begin_layout Standard
+A 
+\family typewriter
+quotation
+\family default
+:
+\end_layout
+
+\begin_layout Quotation
+Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+ Ut nibh orci, molestie non vehicula ac, ultricies quis purus.
+ Nunc euismod metus vel nulla sodales quis tempus nisi varius.
+ Sed ornare pulvinar bibendum.
+ Ut egestas mollis nisi vel cursus.
+ 
+\end_layout
+
+\begin_layout Standard
+…and a 
+\family typewriter
+quote
+\family default
+:
+\end_layout
+
+\begin_layout Quote
+Ut dolor libero, blandit tristique accumsan non, viverra a magna.
+ Sed pretium sollicitudin neque, sit amet ornare lorem convallis ac.
+ Fusce mollis gravida aliquam.
+ Nullam vulputate turpis vitae orci porttitor auctor.
+ Donec in auctor erat.
+ 
+\end_layout
+
+\begin_layout Chapter
+\start_of_appendix
+THE FIRST APPENDIX TITLE
+\end_layout
+
+\begin_layout Standard
+...
+ 
+\end_layout
+
+\begin_layout Chapter
+THE SECOND APPENDIX TITLE
+\end_layout
+
+\begin_layout Standard
+...
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+backmatter
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+<--- mandatory
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+We don't support endnotes.
+\end_layout
+
+\begin_layout Plain Layout
+A bibliography is required.
+\end_layout
+
+\begin_layout Plain Layout
+Use 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+interlinepenalty=10000
+\end_layout
+
+\end_inset
+
+ to prevent split bibliography entries.
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+bibfiles "umthsmpl"
+options "umassthesis"
+
+\end_inset
+
+ 
+\end_layout
+
+\end_body
+\end_document

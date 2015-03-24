@@ -1,0 +1,39 @@
+#% Do not delete the line below; configure depends on this
+#  \DeclareLaTeXClass{umassthesis}
+
+Input report.layout
+
+# Avoid emitting \maketitle until after \frontmatter
+Style ExtraFrontMatter
+	Category     FrontMatter
+	Margin       Static
+	LatexType    Paragraph
+	LatexName    dummy
+	InTitle      1
+	LeftMargin   MMM
+	Align        Block
+	LabelType    No_Label
+End
+
+Style CopyrightPage
+	Category    FrontMatter
+	LatexType   Command
+	LatexName   copyrightpage
+	Align       Center
+	KeepEmpty   1
+	LabelType   Static
+	LabelSep    x
+	LabelString "-- Copyright Page --"
+End
+
+Style SignaturePage
+	Category    FrontMatter
+	LatexType   Command
+	LatexName   signaturepage
+	Align       Center
+	KeepEmpty   1
+	LabelType   Static
+	LabelSep    x
+	LabelString "-- Signature Page --"
+End
+
