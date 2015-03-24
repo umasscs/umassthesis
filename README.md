@@ -1,8 +1,29 @@
-**umassthesis** is a LaTeX2e class file for preparing documents in the required
-form for submission to the University of Massachusetts Graduate School. It can
-be used for doctoral dissertations or for dissertation proposals. It is based
-on the LaTeX2e report class and accepts all of the options of that class. It
-also introduces several new ones:
+# umassthesis
+a LaTeX2e class file for preparing doctoral dissertations or dissertation proposals
+in the required form for submission to the University of Massachusetts Graduate School.
+
+## Quick Start
+To add the required files to your tex environment, run the installer:
+
+    ./install.sh
+    
+If you want to use [LyX](http://www.lyx.org/), copy the layout file after installing the class files:
+
+    cp lyx/umassthesis.layout ~/.lyx/layouts/
+
+Once installed, you should be able to work with the example files in `example/`:
+
+    cd example/
+    # Compile with pdflatex + bibtex:
+    pdflatex umthsmpl
+    bibtex umthsmpl
+    pdflatex umthsmpl
+    # Edit with LyX:
+    lyx umthsmpl.lyx
+
+## Class Options
+**umassthesis** is based on the LaTeX2e report class and accepts all of the options of that class.
+It also introduces several new ones:
 
 * `doublespace` -- the default, indicates double spacing as per U.Mass.
   requirements. You will need this when you do your final copy.
@@ -66,7 +87,7 @@ New environments:
 * `abstract` -- for the abstract
 * `frontispiece` -- for a decorative [frontispiece](http://en.wikipedia.org/wiki/Book_frontispiece)
 
-# You might also like
+## See also
 
 [pdflatex-makefile](https://github.com/ransford/pdflatex-makefile), a succinct,
 revision-control-aware Makefile for pdflatex documents.
