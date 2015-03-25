@@ -1344,7 +1344,12 @@ status open
 Dedication is optional -- but this is how you create it:
 \end_layout
 
-\begin_layout Plain Layout
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 \begin_inset ERT
 status open
 
@@ -1360,7 +1365,7 @@ begin{dedication}
 
 \end_layout
 
-\begin_layout Plain Layout
+\begin_layout Standard
 \align center
 
 \emph on
@@ -1370,7 +1375,7 @@ To those little lost sheep.
  
 \end_layout
 
-\begin_layout Plain Layout
+\begin_layout Standard
 \begin_inset ERT
 status open
 
@@ -1379,11 +1384,6 @@ status open
 
 \backslash
 end{dedication}
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \end_inset
@@ -1564,51 +1564,17 @@ If you want an introduction, which is not a numbered chapter, insert the
   This is OPTIONAL:
 \end_layout
 
-\begin_layout Plain Layout
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-unnumberedchapter
-\end_layout
-
 \end_inset
 
 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-{
 \end_layout
 
-\end_inset
-
+\begin_layout Chapter*
 Introduction
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-}
 \end_layout
 
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
+\begin_layout Standard
 Why on earth do I want to study sheep anyway?
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Chapter
